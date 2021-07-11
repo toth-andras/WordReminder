@@ -29,7 +29,13 @@ namespace WRLibrary
         // Каким был последний ответ при использовании карточки.
         private UserAnswer lastAnswer;
 
-        public int Rating { get; private set; }
+        public int Rating 
+        {
+            get 
+            {
+                return CountRating();
+            } 
+        }
 
         public CardStatistic(DateTime cardCreationDate)
         {
@@ -40,10 +46,36 @@ namespace WRLibrary
             totalCorrectAnswerCount = 0;
         }
 
-        private void CountRating()
+        // Подсчет рейтинга карточки.
+        private int CountRating()
         {
+            int rating = 0;
 
+            // Дата создания карточки
+            rating += ManageCreationDate();
+
+            return rating;
         }
+
+        // Высчитать значение кривой Эббингауза для момента
+        // времени через minutesPassed минут после первого запоминания.
+        private double Ebbinghaus(double minutesPassed)
+        {
+            // Данные для формулы кривой Эббингауза
+            const double k = 1.84;
+            const double c = 1.25;
+
+            return 100 * k / (Math.Pow(Math.Log(minutesPassed), c) + k);
+        }
+
+        // Подсчитывает баллы за дату создания карточки.
+        private int ManageCreationDate()
+        {
+            var delta = DateTime.Now - cardCreationDate;
+
+            return Convert.ToInt32(Ebbinghaus(delta.TotalMinutes));
+        }
+
 
         /// <summary>
         /// Изменяет рейтинг карточки, предполагая, что 
