@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace WRLibrary
 {
+    // В этом файле описаны члены класса, необходимые для подсчета рейтинга карточек.
     public partial class Card
     {
+        #region Fields and properties
         // Сколько раз при использовании карточки были допущены ошибки.
         private int totalMistakesCount;
 
@@ -35,7 +37,9 @@ namespace WRLibrary
         {
             get { return CountRating(); }
         }
+        #endregion
 
+        #region Methods and functions
         // Подсчет рейтинга карточки.
         private int CountRating()
         {
@@ -148,5 +152,6 @@ namespace WRLibrary
             lastMistakeDate = DateTime.Now;
             lastUsedDate = DateTime.Now;
         }
+        #endregion
     }
 }

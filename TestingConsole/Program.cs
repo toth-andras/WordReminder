@@ -15,9 +15,7 @@ namespace TestingConsole
             }
             int c = card.Rating;
 
-            CardStorage cardStorage = new CardStorage();
-
-            cardStorage = null;
+            Console.WriteLine(card);
         }
     }
 }

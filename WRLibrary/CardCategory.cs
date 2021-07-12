@@ -33,6 +33,14 @@ namespace WRLibrary
 
         public static bool operator ==(CardCategory card1, CardCategory card2)
         {
+            if (card1 is null || card2 is null)
+            {
+                if (card1 is null && card2 is null)
+                {
+                    return true;
+                }
+                return false;
+            }
             return card1.Name == card2.Name;
         }
         public static bool operator !=(CardCategory card1, CardCategory card2)

@@ -8,6 +8,7 @@ namespace WRLibrary
     /// </summary>
     public partial class Card 
     {
+        #region Properties
         /// <summary>
         /// Первое значение карточки - термин.
         /// </summary>
@@ -22,7 +23,9 @@ namespace WRLibrary
         /// Категория карточки.
         /// </summary>
         public CardCategory Category { get; private set; }
+        #endregion
 
+        #region Constructors
         public Card(string term, string value)
         {
             term = term.Trim();
@@ -53,10 +56,16 @@ namespace WRLibrary
             lastUsedDate = model.LastUsedDate;
             lastAnswer = model.LastAnswer;
         }
+        #endregion
 
+        #region Methods and Functions
         public override string ToString() 
         {
-            return $"{Category}: {Term} - {Value} ({CreationDate.ToString("dd.MM.yyyy")})";
+            if (Category is null)
+            {
+                return $"{Term} - {Value} |{Rating}|{CreationDate.ToString("dd.MM.yyyy")}|";
+            }
+            return $"{Term} - {Value} |{Rating}|{Category}|{CreationDate.ToString("dd.MM.yyyy")}|";
         }
 
         /// <summary>
@@ -85,5 +94,6 @@ namespace WRLibrary
         {
             return new CardIOModel(Term, Value, Category, totalMistakesCount, totalCorrectAnswerCount, CreationDate, lastMistakeDate, lastUsedDate, lastAnswer);
         }
+        #endregion
     }
 }
