@@ -79,16 +79,28 @@ namespace WRLibrary
         private int ManageCreationDate()
         {
             var delta = DateTime.Now - cardCreationDate;
+            double ebbinghausValue = Ebbinghaus(delta.TotalMinutes);
 
-            return Convert.ToInt32(Ebbinghaus(delta.TotalMinutes));
+            try
+            {
+                return Convert.ToInt32(ebbinghausValue);
+            }
+            catch (OverflowException)
+            {
+                return 100;
+            }
         }
 
         // Подсчитывает баллы за правильные и неправильные ответы.
         private int ManageCorrectAnswersMistakes()
         {
+            if (totalCorrectAnswerCount + totalMistakesCount == 0)
+            {
+                return 0;
+            }
             double res = totalCorrectAnswerCount / ((totalCorrectAnswerCount + totalMistakesCount) * 1.0);
 
-            return Convert.ToInt32(res);
+            return Convert.ToInt32(res * 100);
         }
 
         // Подсчитывет баллы за даты последнего использования
@@ -106,7 +118,8 @@ namespace WRLibrary
                 return 0;
             }
 
-            return 1;
+            double res = (cardLastUsedDate - lastMistakeDate).Value.TotalDays * 1.0 / 365;
+            return Convert.ToInt32(res); 
         }
 
         // Подсчитывает баллы за последний данный ответ.
@@ -120,7 +133,7 @@ namespace WRLibrary
             {
                 return 0;
             }
-            return 10;
+            return 100;
         }
 
 
