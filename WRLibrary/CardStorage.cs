@@ -40,12 +40,28 @@ namespace WRLibrary
         /// <param name="card"></param>
         public void AddCard(Card card)
         {
-            if (card == null)
+            if (card is null)
             {
-                throw new NullReferenceException("Parameter 'card' was null.");
+                throw new NullReferenceException("Parameter 'card' in method AddCard of class CardStorage was null.");
             }
 
             cards.Add(card);
+            // Отсортировать карточки снова.
+            cards.Sort(new CardComparer());
+        }
+
+        /// <summary>
+        /// Добавить коллекцию карточек в хранилище.
+        /// </summary>
+        /// <param name="cardsToAdd">Коллекция карточек.</param>
+        public void AddCards(IEnumerable<Card> cardsToAdd)
+        {
+            if (cardsToAdd is null)
+            {
+                throw new NullReferenceException("Parameter 'cardsToAdd' in method AddCards of class CardStorage was null.");
+            }
+
+            cards.AddRange(cardsToAdd);
         }
 
         public void Save()
@@ -53,17 +69,12 @@ namespace WRLibrary
             cardIOService.Write(cards);
         }
 
-        // TO DO: убрать из этого  | метода Sort()
-        //                         V  
         /// <summary>
         /// Возвращает набор карт для опроса.
         /// </summary>
         /// <returns></returns>
         public Card[] GetCardsForQuest()
         {
-            // Должны быть возвращены с самым маленьким рейтингом.
-            cards.Sort(new CardComparer());
-
             if (cards.Count < cardsPerQest)
             {
                 return cards.ToArray();
