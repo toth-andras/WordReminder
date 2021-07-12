@@ -27,7 +27,7 @@ namespace WRLibrary
         private DateTime? cardLastUsedDate;
 
         // Каким был последний ответ при использовании карточки.
-        private UserAnswer lastAnswer;
+        private UserAnswer? lastAnswer;
 
         public int Rating 
         {
@@ -39,8 +39,6 @@ namespace WRLibrary
 
         public CardStatistic(DateTime cardCreationDate)
         {
-            Rating = 0;
-
             this.cardCreationDate = cardCreationDate;
             totalMistakesCount = 0;
             totalCorrectAnswerCount = 0;
@@ -54,11 +52,20 @@ namespace WRLibrary
             // Дата создания карточки
             rating += ManageCreationDate();
 
+            // Кол-во правильных и неправильных ответов
+            rating += ManageCorrectAnswersMistakes();
+
+            // Даты последнего использования и последней ошибки
+            rating += ManageLastDates();
+
+            // Последний ответ
+            rating += ManageLastAnswer();
+
             return rating;
         }
 
         // Высчитать значение кривой Эббингауза для момента
-        // времени через minutesPassed минут после первого запоминания.
+        // времени через minutesPassed минут.
         private double Ebbinghaus(double minutesPassed)
         {
             // Данные для формулы кривой Эббингауза
@@ -74,6 +81,46 @@ namespace WRLibrary
             var delta = DateTime.Now - cardCreationDate;
 
             return Convert.ToInt32(Ebbinghaus(delta.TotalMinutes));
+        }
+
+        // Подсчитывает баллы за правильные и неправильные ответы.
+        private int ManageCorrectAnswersMistakes()
+        {
+            double res = totalCorrectAnswerCount / ((totalCorrectAnswerCount + totalMistakesCount) * 1.0);
+
+            return Convert.ToInt32(res);
+        }
+
+        // Подсчитывет баллы за даты последнего использования
+        // и последней ошибки.
+        private int ManageLastDates()
+        {
+            if (lastMistakeDate == null || cardLastUsedDate == null)
+            {
+                return 0;
+            }
+
+            // Знак >= на случай задержки в несколько долей секунд.
+            if (lastMistakeDate >= cardLastUsedDate)
+            {
+                return 0;
+            }
+
+            return 1;
+        }
+
+        // Подсчитывает баллы за последний данный ответ.
+        private int ManageLastAnswer()
+        {
+            if (lastAnswer == null)
+            {
+                return 0;
+            }
+            if (lastAnswer == UserAnswer.Mistake)
+            {
+                return 0;
+            }
+            return 10;
         }
 
 
