@@ -1,15 +1,13 @@
 ﻿using System;
+using WRLibrary.Services;
 
 namespace WRLibrary
 {
     /// <summary>
     /// Базовый класс для представления любой пары "Значение 1 (термин) - Значение 2 (перевод)".
     /// </summary>
-    public class Card 
+    public partial class Card 
     {
-        // Формирует рейтинг карточки.
-        private CardStatistic statistic;
-
         /// <summary>
         /// Первое значение карточки - термин.
         /// </summary>
@@ -21,22 +19,9 @@ namespace WRLibrary
         public string Value { get; private set; }
 
         /// <summary>
-        /// Рейтинг карточки.
-        /// </summary>
-        public int Rating 
-        {
-            get { return statistic.Rating; }
-        }
-
-        /// <summary>
         /// Категория карточки.
         /// </summary>
         public CardCategory Category { get; private set; }
-
-        /// <summary>
-        /// Дата создания карточки.
-        /// </summary>
-        public DateTime CreationDate { get; private set; }
 
         public Card(string term, string value)
         {
@@ -52,7 +37,21 @@ namespace WRLibrary
             Value = value;
             CreationDate = DateTime.Now;
 
-            statistic = new CardStatistic(CreationDate);
+            totalMistakesCount = 0;
+            totalCorrectAnswerCount = 0;
+        }
+
+        public Card(CardIOModel model)
+        {
+            Term = model.Term;
+            Value = model.Value;
+            Category = model.Category;
+            totalMistakesCount = model.TotalMistakesCount;
+            totalCorrectAnswerCount = model.TotalCorrectAnswerCount;
+            CreationDate = model.CreationDate;
+            lastMistakeDate = model.LastMistakeDate;
+            lastUsedDate = model.LastUsedDate;
+            lastAnswer = model.LastAnswer;
         }
 
         public override string ToString() 
@@ -80,19 +79,11 @@ namespace WRLibrary
         }
 
         /// <summary>
-        /// Отрабатывает поведение карточки, когда при ее использовании был дан правильный ответ.
+        /// Возвращает специальный объект для хранения карточки в памяти компьютера.
         /// </summary>
-        public void OnCorrectAnswer()
+        public CardIOModel ToIOModel()
         {
-            statistic.CorrectAnswer();
-        }
-
-        /// <summary>
-        /// Отрабатывает поведение карточки, когда при ее использовании был дан неправильный ответ.
-        /// </summary>
-        public void OnMistake()
-        {
-            statistic.Mistake();
+            return new CardIOModel(Term, Value, Category, totalMistakesCount, totalCorrectAnswerCount, CreationDate, lastMistakeDate, lastUsedDate, lastAnswer);
         }
     }
 }

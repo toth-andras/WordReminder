@@ -31,7 +31,15 @@ namespace WRLibrary.Services
                 {
                     var fileText = reader.ReadToEnd();
 
-                    return JsonConvert.DeserializeObject<List<Card>>(fileText);
+                    List<CardIOModel> dataFromMemory = JsonConvert.DeserializeObject<List<CardIOModel>>(fileText);
+                    List<Card> cards = new List<Card>();
+
+                    foreach (CardIOModel item in dataFromMemory)
+                    {
+                        cards.Add(new Card(item));
+                    }
+
+                    return cards;
                 }
             }
             catch (Exception ex)
@@ -43,9 +51,15 @@ namespace WRLibrary.Services
         {
             try
             {
+                List<CardIOModel> dataToWrite = new List<CardIOModel>();
+                foreach (Card item in cards)
+                {
+                    dataToWrite.Add(item.ToIOModel());
+                }
+
                 using (StreamWriter writer = File.CreateText(path))
                 {
-                    string output = JsonConvert.SerializeObject(cards);
+                    string output = JsonConvert.SerializeObject(dataToWrite);
                     writer.Write(output);
                 }
             }

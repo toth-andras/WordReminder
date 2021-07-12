@@ -48,6 +48,11 @@ namespace WRLibrary
             cards.Add(card);
         }
 
+        public void Save()
+        {
+            cardIOService.Write(cards);
+        }
+
         // TO DO: убрать из этого  | метода Sort()
         //                         V  
         /// <summary>

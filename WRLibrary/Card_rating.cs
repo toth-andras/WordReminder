@@ -6,42 +6,34 @@ using System.Threading.Tasks;
 
 namespace WRLibrary
 {
-    /// <summary>
-    /// Компонент, составляющий рейтинг карточки.
-    /// </summary>
-    class CardStatistic
+    public partial class Card
     {
-        // Когда создали карточку.
-        private DateTime cardCreationDate;
-
         // Сколько раз при использовании карточки были допущены ошибки.
         private int totalMistakesCount;
 
         // Сколько раз при использовании карточки был дан верный ответ.
         private int totalCorrectAnswerCount;
 
+        /// <summary>
+        /// Дата создания карточки.
+        /// </summary>
+        public DateTime CreationDate { get; private set; }
+
         // Дата последнего раза, когда при использовании карточки была допущена ошибка.
         private DateTime? lastMistakeDate;
 
         // Дата последнего использования карточки.
-        private DateTime? cardLastUsedDate;
+        private DateTime? lastUsedDate;
 
         // Каким был последний ответ при использовании карточки.
         private UserAnswer? lastAnswer;
 
-        public int Rating 
+        /// <summary>
+        /// Рейтинг карточки.
+        /// </summary>
+        public int Rating
         {
-            get 
-            {
-                return CountRating();
-            } 
-        }
-
-        public CardStatistic(DateTime cardCreationDate)
-        {
-            this.cardCreationDate = cardCreationDate;
-            totalMistakesCount = 0;
-            totalCorrectAnswerCount = 0;
+            get { return CountRating(); }
         }
 
         // Подсчет рейтинга карточки.
@@ -66,7 +58,7 @@ namespace WRLibrary
 
         // Высчитать значение кривой Эббингауза для момента
         // времени через minutesPassed минут.
-        private double Ebbinghaus(double minutesPassed)
+        private static double Ebbinghaus(double minutesPassed)
         {
             // Данные для формулы кривой Эббингауза
             const double k = 1.84;
@@ -78,7 +70,7 @@ namespace WRLibrary
         // Подсчитывает баллы за дату создания карточки.
         private int ManageCreationDate()
         {
-            var delta = DateTime.Now - cardCreationDate;
+            var delta = DateTime.Now - CreationDate;
             double ebbinghausValue = Ebbinghaus(delta.TotalMinutes);
 
             try
@@ -107,19 +99,19 @@ namespace WRLibrary
         // и последней ошибки.
         private int ManageLastDates()
         {
-            if (lastMistakeDate == null || cardLastUsedDate == null)
+            if (lastMistakeDate == null || lastUsedDate == null)
             {
                 return 0;
             }
 
             // Знак >= на случай задержки в несколько долей секунд.
-            if (lastMistakeDate >= cardLastUsedDate)
+            if (lastMistakeDate >= lastUsedDate)
             {
                 return 0;
             }
 
-            double res = (cardLastUsedDate - lastMistakeDate).Value.TotalDays * 1.0 / 365;
-            return Convert.ToInt32(res); 
+            double res = (lastUsedDate - lastMistakeDate).Value.TotalDays * 1.0 / 365;
+            return Convert.ToInt32(res);
         }
 
         // Подсчитывает баллы за последний данный ответ.
@@ -136,27 +128,25 @@ namespace WRLibrary
             return 100;
         }
 
-
         /// <summary>
-        /// Изменяет рейтинг карточки, предполагая, что 
-        /// пользователем при использовании был дан правильный ответ.
+        /// Отрабатывает поведение карточки, когда при ее использовании был дан правильный ответ.
         /// </summary>
-        public void CorrectAnswer()
+        public void OnCorrectAnswer()
         {
             totalCorrectAnswerCount++;
             lastAnswer = UserAnswer.CorrectAnswer;
-            cardLastUsedDate = DateTime.Now;
+            lastUsedDate = DateTime.Now;
         }
+
         /// <summary>
-        /// Изменяет рейтинг карточки, предполагая, что 
-        /// пользователем при использовании был дан неправильный ответ.
+        /// Отрабатывает поведение карточки, когда при ее использовании был дан неправильный ответ.
         /// </summary>
-        public void Mistake()
+        public void OnMistake()
         {
             totalMistakesCount++;
             lastAnswer = UserAnswer.Mistake;
             lastMistakeDate = DateTime.Now;
-            cardLastUsedDate = DateTime.Now;
+            lastUsedDate = DateTime.Now;
         }
     }
 }
