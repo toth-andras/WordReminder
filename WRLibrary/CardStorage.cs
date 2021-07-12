@@ -64,6 +64,19 @@ namespace WRLibrary
             cards.AddRange(cardsToAdd);
         }
 
+        /// <summary>
+        /// Удалить карточку из хранилища.
+        /// </summary>
+        /// <param name="card">Карточка</param>
+        public void RemoveCard(Card card)
+        {
+            if (card is null)
+            {
+                throw new NullReferenceException("Parameter 'card' in method RemoveCard of class CardStorage was null.");
+            }
+            cards.Remove(card);
+        }
+
         public void Save()
         {
             cardIOService.Write(cards);
