@@ -22,8 +22,8 @@ namespace WRLibrary
         IQuestion GetNextQuestion();
 
         /// <summary>
-        /// Вызывается по окончании опроса.
+        /// Вызывается, когда в опросе остается один вопрос.
         /// </summary>
-        event QuizDelegate OnQuizOver;
+        event QuizDelegate OnLastQuestion;
     }
 }

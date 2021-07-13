@@ -45,9 +45,20 @@ namespace WRLibrary
                 throw new NullReferenceException("Parameter 'card' in method AddCard of class CardStorage was null.");
             }
 
+            // Проверка на то, что такая карточка уже есть в хранилище.
+            foreach (Card item in cards)
+            {
+                if (item == card)
+                {
+                    throw new CardAlreadyExistsException();
+                }
+            }
+
             cards.Add(card);
             // Отсортировать карточки снова.
             cards.Sort(new CardComparer());
+
+            Save();
         }
 
         /// <summary>
@@ -62,6 +73,8 @@ namespace WRLibrary
             }
 
             cards.AddRange(cardsToAdd);
+            cards.Sort(new CardComparer());
+            Save();
         }
 
         /// <summary>
@@ -80,6 +93,14 @@ namespace WRLibrary
         public void Save()
         {
             cardIOService.Write(cards);
+        }
+
+        /// <summary>
+        /// Возвращает все карточки хранилища.
+        /// </summary>
+        public Card[] GetAllCards()
+        {
+            return cards.ToArray();
         }
 
         /// <summary>

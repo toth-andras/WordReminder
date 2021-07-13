@@ -94,6 +94,19 @@ namespace WRLibrary
         {
             return new CardIOModel(Term, Value, Category, totalMistakesCount, totalCorrectAnswerCount, CreationDate, lastMistakeDate, lastUsedDate, lastAnswer);
         }
+
+        public static bool operator ==(Card card1, Card card2)
+        {
+            if (card1 is null || card2 is null)
+            {
+                return false;
+            }
+            return (card1.Term == card2.Term) && (card1.Value == card2.Value); ;
+        }
+        public static bool operator !=(Card card1, Card card2)
+        {
+            return !(card1 == card2);
+        }
         #endregion
     }
 }
