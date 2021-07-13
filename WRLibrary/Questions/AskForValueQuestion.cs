@@ -16,6 +16,11 @@ namespace WRLibrary
         public event QuestionDelegate OnCorrectAnswer;
         public event QuestionDelegate OnMistake;
 
+        /// <summary>
+        /// Проверить ответ пользователя.
+        /// </summary>
+        /// <param name="userChoice">Ответ пользователя (string).</param>
+        /// <returns>Один из вариантов результата проверки.</returns>
         public UserAnswer CheckAnswer(object userChoice)
         {
             if (userChoice == null)

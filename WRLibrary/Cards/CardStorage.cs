@@ -12,7 +12,7 @@ namespace WRLibrary
     public class CardStorage
     {
         // Сколько карточек должно быть в каждом опросе.
-        private readonly int cardsPerQest;
+        private readonly int cardsPerQuiz;
 
         // Все карточки хранилища.
         private List<Card> cards;
@@ -22,7 +22,7 @@ namespace WRLibrary
 
         public CardStorage()
         {
-            this.cardsPerQest = 10;
+            this.cardsPerQuiz = 10;
             cardIOService = new CardIOService($"{Environment.CurrentDirectory}\\cards.json");
             try
             {
@@ -88,11 +88,11 @@ namespace WRLibrary
         /// <returns></returns>
         public Card[] GetCardsForQuest()
         {
-            if (cards.Count < cardsPerQest)
+            if (cards.Count < cardsPerQuiz)
             {
                 return cards.ToArray();
             }
-            return cards.Slice(to: cardsPerQest).ToArray();  
+            return cards.Slice(to: cardsPerQuiz).ToArray();  
         }
 
         /// <summary>
