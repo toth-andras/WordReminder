@@ -15,17 +15,23 @@ namespace WRLibrary
         private int nextQuestionIndex;
         public IQuestion[] Questions { get; set; }
 
+
         public event QuizDelegate OnLastQuestion;
 
-        public RemindQuiz(IQuestion[] questions)
+        public RemindQuiz(Card[] cards, IQuizCreator quizCreator)
         {
+            if (cards == null)
+            {
+                throw new NullReferenceException("Parameter 'cards' was null.") { Source = "RemindQuiz.RemindQuiz(Card[], IQuizCreator)" };
+            }
+            if (quizCreator == null)
+            {
+                throw new NullReferenceException("Parameter 'quizCreator' was null.") { Source = "RemindQuiz.RemindQuiz(Card[], IQuizCreator)" };
+
+            }
             nextQuestionIndex = 0;
 
-            if (questions == null)
-            {
-                throw new NullReferenceException("Parameter 'questions' was null.") { Source = "RimindQuiz.RemindQuiz(IQuestion[] questions)" };
-            }
-            Questions = questions;
+            Questions = quizCreator.CreateQuestions(cards);
             MixQuestions();
         }
 
