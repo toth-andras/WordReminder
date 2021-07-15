@@ -33,10 +33,7 @@ namespace WRLibrary
         /// <summary>
         /// Рейтинг карточки.
         /// </summary>
-        public int Rating
-        {
-            get { return CountRating(); }
-        }
+        public int Rating => CountRating();
         #endregion
 
         #region Methods and functions
