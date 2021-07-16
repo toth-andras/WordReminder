@@ -16,6 +16,15 @@ namespace WRLibrary
         public event QuestionDelegate OnCorrectAnswer;
         public event QuestionDelegate OnMistake;
 
+        public AskForValueQuestion(Card card)
+        {
+            if (card == null)
+            {
+                throw new NullReferenceException("Parameter 'card' was null") { Source = "AskForValueQuestion.AskForValueQuestion(Card)" };
+            }
+            Card = card;
+        }
+
         /// <summary>
         /// Проверить ответ пользователя.
         /// </summary>
