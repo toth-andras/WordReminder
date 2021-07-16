@@ -11,7 +11,7 @@ namespace WRLibrary
     /// <summary>
     /// Интерфейс для определения базового функционала вопроса.
     /// </summary>
-    interface IQuestion
+    public interface IQuestion
     {
         Card Card { get; set; }
 

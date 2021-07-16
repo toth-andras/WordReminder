@@ -11,7 +11,7 @@ namespace WRLibrary
     /// <summary>
     /// Интерфейс базового функционала опросов.
     /// </summary>
-    interface IQuiz
+    public interface IQuiz
     {
         IQuestion[] Questions { get; set; }
 

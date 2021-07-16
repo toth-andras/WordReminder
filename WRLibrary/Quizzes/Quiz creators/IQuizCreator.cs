@@ -11,7 +11,7 @@ namespace WRLibrary
     /// составлять списки вопросов в опросах. Это необходимо для того,
     /// чтобы можно было формировать группы вопросов из разных типов вопросов.
     /// </summary>
-    interface IQuizCreator
+    public interface IQuizCreator
     {
         /// <summary>
         /// Создать из карточек серию вопросов.

@@ -9,7 +9,7 @@ namespace WRLibrary
     /// <summary>
     /// Вопрос, ответом на который является определение к термину.
     /// </summary>
-    class AskForValueQuestion : IQuestion
+    public class AskForValueQuestion : IQuestion
     {
         public Card Card { get; set; }
 

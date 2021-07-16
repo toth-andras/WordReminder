@@ -21,6 +21,10 @@ namespace TestingConsole
                 {
                     AddCard();
                 }
+                if (res == 3)
+                {
+                    DoQuiz();
+                }
                 if (res == 4)
                 {
                     ShowCards();
@@ -66,6 +70,10 @@ namespace TestingConsole
             {
                 WriteCard(item);
             }
+        }
+        static void DoQuiz()
+        {
+            Quiz
         }
         static void WriteOption(int num, string description)
         {

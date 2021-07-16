@@ -10,7 +10,7 @@ namespace WRLibrary.Quizzes.Quiz_creators
     /// Составляет опрос исключительно из вопросов,
     /// ответом на которые является определение к термину.
     /// </summary>
-    class AskForValueQuizCreator : IQuizCreator
+    public class AskForValueQuizCreator : IQuizCreator
     {
         public IQuestion[] CreateQuestions(Card[] cards)
         {

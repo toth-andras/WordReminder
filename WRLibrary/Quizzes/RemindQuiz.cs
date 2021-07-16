@@ -9,7 +9,7 @@ namespace WRLibrary
     /// <summary>
     /// Опрос, цель которого - повторить слова.
     /// </summary>
-    class RemindQuiz : IQuiz
+    public class RemindQuiz : IQuiz
     {
         // Индекс следующего вопроса опроса.
         private int nextQuestionIndex;
