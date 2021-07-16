@@ -73,7 +73,30 @@ namespace TestingConsole
         }
         static void DoQuiz()
         {
-            RemindQuiz quiz = new RemindQuiz(cardStorage.GetCardsForQuiz(), new AskForValueQuizCreator()); 
+            var isLats = false;
+            void End(object sender, EventArgs e)
+            {
+                isLats = true;
+            }
+
+            RemindQuiz quiz = new RemindQuiz(cardStorage.GetCardsForQuiz(), new AskForValueQuizCreator());
+            quiz.OnLastQuestion += End;
+
+            bool onProcess = true;
+            while (onProcess)
+            {
+                var question = quiz.GetNextQuestion();
+                Console.WriteLine(question);
+                var answ = Console.ReadLine();
+                Console.WriteLine(question.CheckAnswer(answ));
+
+                if (isLats)
+                {
+                    onProcess = false;
+                }
+            }
+
+            Console.WriteLine("Конец опроса");
         }
         static void WriteOption(int num, string description)
         {

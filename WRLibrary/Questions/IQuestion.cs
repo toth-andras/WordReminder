@@ -16,6 +16,11 @@ namespace WRLibrary
         Card Card { get; set; }
 
         /// <summary>
+        /// Формулировка вопроса в формате строки.
+        /// </summary>
+        public string TextDescription { get; }
+
+        /// <summary>
         /// Вызывается при правильном ответе на вопрос.
         /// </summary>
         public event QuestionDelegate OnCorrectAnswer;
@@ -30,6 +35,6 @@ namespace WRLibrary
         /// </summary>
         /// <param name="userChoice">Ответ пользователя в какой-либо форме.</param>
         /// <returns>Один из вариантов результата проверки.</returns>
-        public abstract UserAnswer CheckAnswer(object userChoice);
+        public UserAnswer CheckAnswer(object userChoice);
     }
 }

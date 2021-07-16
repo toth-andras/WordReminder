@@ -13,6 +13,8 @@ namespace WRLibrary
     {
         public Card Card { get; set; }
 
+        public string TextDescription => ToString();
+
         public event QuestionDelegate OnCorrectAnswer;
         public event QuestionDelegate OnMistake;
 
