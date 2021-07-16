@@ -107,7 +107,7 @@ namespace WRLibrary
         /// Возвращает набор карт для опроса.
         /// </summary>
         /// <returns></returns>
-        public Card[] GetCardsForQuest()
+        public Card[] GetCardsForQuiz()
         {
             if (cards.Count < cardsPerQuiz)
             {

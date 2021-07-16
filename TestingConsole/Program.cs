@@ -73,7 +73,7 @@ namespace TestingConsole
         }
         static void DoQuiz()
         {
-            Quiz
+            RemindQuiz quiz = new RemindQuiz(cardStorage.GetCardsForQuiz(), new AskForValueQuizCreator()); 
         }
         static void WriteOption(int num, string description)
         {

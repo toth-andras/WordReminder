@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WRLibrary.Quizzes.Quiz_creators
+namespace WRLibrary
 {
     /// <summary>
     /// Составляет опрос исключительно из вопросов,
