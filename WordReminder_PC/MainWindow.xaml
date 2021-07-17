@@ -10,8 +10,7 @@
         ResizeMode="NoResize" 
         Background="Transparent"
         AllowsTransparency="True"
-        WindowStyle="None"
-        >
+        WindowStyle="None">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
@@ -40,13 +39,16 @@
                                  Height="50"
                                  Foreground="White"
                                  FontSize="14"
-                                 Style="{StaticResource MenuButtonTheme}"/>
+                                 IsChecked="True"
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Command="{Binding HomeViewCommand}"/>
 
                     <RadioButton Content="Cards"
                                  Height="50"
                                  Foreground="White"
                                  FontSize="14"
-                                 Style="{StaticResource MenuButtonTheme}"/>
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Command="{Binding CardsViewCommand}"/>
                     
                     <RadioButton Content="Collections"
                                  Height="50"

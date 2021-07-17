@@ -16,6 +16,7 @@
         <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
             <!--Кнопка Пройти опрос-->
             <Button x:Name="DoQuizButton"
+                    Click="DoQuizButton_Click"  
                     BorderThickness="0"
                     Height="200"
                     Width="400">
@@ -50,6 +51,7 @@
             
             <!--Кнопка Добавить карточку-->
             <Button x:Name="AddCardButton"
+                    Click="AddCardButton_Click"
                     Height="200"
                     Width="300"
                     BorderThickness="0"

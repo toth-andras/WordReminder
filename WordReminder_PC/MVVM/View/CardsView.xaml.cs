@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace WordReminder_PC.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for HomeView.xaml
+    /// Interaction logic for CardsView.xaml
     /// </summary>
-    public partial class HomeView : UserControl
+    public partial class CardsView : UserControl
     {
-        public HomeView()
+        public CardsView()
         {
             InitializeComponent();
-        }
-
-        private void DoQuizButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void AddCardButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
