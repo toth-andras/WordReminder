@@ -4,13 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WordReminder_PC"
+                     xmlns:viewModel="clr-namespace:WordReminder_PC.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="920"
+        Title="MainWindow" Height="600" Width="1020"
         ResizeMode="NoResize" 
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None"
         >
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
     <Grid>
         <Border Background="#272537">
             <Grid>
@@ -60,7 +64,8 @@
                 <!-- Основная часть-->
                 <ContentControl Grid.Row="1"
                                 Grid.Column="1"
-                                Margin="10">
+                                Margin="20"
+                                Content="{Binding CurrentView}">
                     
                 </ContentControl>
             </Grid>
