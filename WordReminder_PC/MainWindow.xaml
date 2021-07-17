@@ -5,8 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WordReminder_PC"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="920"
+        ResizeMode="NoResize" 
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        >
     <Grid>
-        
+        <Border Background="#272537">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock TextAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="22"
+                       Margin="20"
+                       Text="WordReminder"/>
+                
+                <!-- Меню -->
+                <StackPanel Grid.Row="1">
+                    <RadioButton Content="Home"
+                                 Height="50"
+                                 Foreground="White"
+                                 FontSize="14"
+                                 Style="{StaticResource MenuButtonTheme}"/>
+
+                    <RadioButton Content="Cards"
+                                 Height="50"
+                                 Foreground="White"
+                                 FontSize="14"
+                                 Style="{StaticResource MenuButtonTheme}"/>
+                    
+                    <RadioButton Content="Collections"
+                                 Height="50"
+                                 Foreground="White"
+                                 FontSize="14"
+                                 Style="{StaticResource MenuButtonTheme}"/>
+
+                    <RadioButton Content="Settings"
+                                 Height="50"
+                                 Foreground="White"
+                                 FontSize="14"
+                                 Style="{StaticResource MenuButtonTheme}"/>
+                </StackPanel>
+                
+                <!-- Основная часть-->
+                <ContentControl Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="10">
+                    
+                </ContentControl>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
