@@ -14,73 +14,74 @@
                    Margin="0, 0, 0, 20"/>
 
         <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
-            <!--Пройти опрос-->
-            <Border Width="400"
-                    Height="200">
-                <Border.Background>
+            <!--Кнопка Пройти опрос-->
+            <Button x:Name="DoQuizButton"
+                    BorderThickness="0"
+                    Height="200"
+                    Width="400">
+                <!--Форма кнопки-->
+                <Button.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0, 400, 200"/>
+                </Button.Clip>
+                
+                <!--Цвет кнопки-->
+                <Button.Background>
                     <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
                         <GradientStop Color="#5bc3ff" Offset="0.0"/>
                         <GradientStop Color="#3aa0ff" Offset="1"/>
                     </LinearGradientBrush>
-                </Border.Background>
-
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0, 400, 200"/>
-
-                </Border.Clip>
+                </Button.Background>
                 
-                <Grid>
-                    <StackPanel>
-                        <TextBlock Text="Пройти&#x0a;опрос"
+                <!--Текст кнопки-->
+                <StackPanel>
+                    <TextBlock Text="Пройти&#x0a;опрос"
                                    Foreground="White" 
                                    FontSize="40"
                                    Margin="20, 10, 10, 0"/>
 
-                        <TextBlock Text="Проверьте свои знания или выучите&#x0a;что-то новое"
+                    <TextBlock Text="Проверьте свои знания или выучите&#x0a;что-то новое"
                                    Foreground="White" 
                                    FontSize="20"
                                    Margin="20, 10, 10, 0"/>
-                    </StackPanel>
-
-                </Grid>
-            </Border>
+                </StackPanel>
+            </Button>
             
-            <!--Добавить карточку-->
-            <Border Width="300"
+            <!--Кнопка Добавить карточку-->
+            <Button x:Name="AddCardButton"
                     Height="200"
+                    Width="300"
+                    BorderThickness="0"
                     Margin="50, 0, 0, 0">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
-                        <GradientStop Color="#A274DD" Offset="0.0"/>
-                        <GradientStop Color="#A274DD" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-
-                <Border.Clip>
+                <!--Форма кнопки-->
+                <Button.Clip>
                     <RectangleGeometry RadiusX="10"
                                        RadiusY="10"
                                        Rect="0,0, 300, 200"/>
-
-                </Border.Clip>
-
-                <Grid>
-                    <StackPanel>
-                        <TextBlock Text="Добавить&#x0a;катрочку"
+                </Button.Clip>
+                
+                <!--Цвет кнопки-->
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
+                        <GradientStop Color="#A274DD" Offset="0.0"/>
+                        <GradientStop Color="#A065ED" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                
+                <!--Текст кнопки-->
+                <StackPanel>
+                    <TextBlock Text="Добавить&#x0a;карточку"
                                    Foreground="White" 
                                    FontSize="40"
                                    Margin="20, 10, 10, 0"/>
 
-                        <TextBlock Text="Добавьте то, что хотели&#x0a;бы запомнить"
+                    <TextBlock Text="Добавьте то, что хотели&#x0a;бы запомнить"
                                    Foreground="White" 
                                    FontSize="20"
                                    Margin="20, 10, 10, 0"/>
-
-                    </StackPanel>
-
-                </Grid>
-            </Border>
+                </StackPanel>
+            </Button>
         </StackPanel>
     </StackPanel>
 </UserControl>

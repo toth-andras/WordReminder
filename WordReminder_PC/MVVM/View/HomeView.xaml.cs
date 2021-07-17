@@ -24,5 +24,10 @@ namespace WordReminder_PC.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int a = 0;
+        }
     }
 }
