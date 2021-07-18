@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using WRApp_PC.UserControls;
+using WRApp_PC.Core;
 
 namespace WRApp_PC
 {
@@ -25,19 +25,20 @@ namespace WRApp_PC
         public MainWindow()
         {
             InitializeComponent();
-            MainGrid.Children.Add(new MainPage());
+            PageManager.Initialize(MainGrid);
+            PageManager.ChangePage(Pages.Main);
         }
 
         private void MainPageMenuButton_Click(object sender, RoutedEventArgs e)
         {
-            MainGrid.Children.Clear();
-            MainGrid.Children.Add(new MainPage());
+            PageManager.ChangePage(Pages.Main);
         }
 
         private void MyCardsMenuButton_Click(object sender, RoutedEventArgs e)
         {
-            MainGrid.Children.Clear();
-            MainGrid.Children.Add(new CardsShowerPage());
+            PageManager.ChangePage(Pages.CardsShower);
         }
+
+
     }
 }

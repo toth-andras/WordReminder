@@ -13,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using WRApp_PC.Core;
-
 namespace WRApp_PC.UserControls
 {
     /// <summary>
-    /// Interaction logic for MainPage.xaml
+    /// Interaction logic for AddCardPage.xaml
     /// </summary>
-    public partial class MainPage : UserControl
+    public partial class AddCardPage : UserControl
     {
-        public MainPage()
+        public AddCardPage()
         {
             InitializeComponent();
-        }
-
-        private void AddCardButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageManager.ChangePage(Pages.AddCard);
         }
     }
 }

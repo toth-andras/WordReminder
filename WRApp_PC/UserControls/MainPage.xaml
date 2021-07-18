@@ -50,11 +50,13 @@
                 </Button>
 
                 <!--Кнопка Добавить карточку-->
-                <Button Margin="50, 0, 0, 0" 
-                    BorderThickness="0"
-                    Height="200"
-                    Width="400"
-                    Command="{Binding AddCardViewCommand}">
+                <Button x:Name="AddCardButton"
+                        Margin="50, 0, 0, 0" 
+                        BorderThickness="0"
+                        Height="200"
+                        Width="400"
+                        Click="AddCardButton_Click">
+                    
                     <!--Форма кнопки-->
                     <Button.Clip>
                         <RectangleGeometry RadiusX="10"
