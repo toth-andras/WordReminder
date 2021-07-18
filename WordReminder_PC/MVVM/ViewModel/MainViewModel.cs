@@ -13,9 +13,11 @@ namespace WordReminder_PC.MVVM.ViewModel
 
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand CardsViewCommand { get; set; }
+        public RelayCommand AddCardViewCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public CardsViewModel CardsVM { get; set; }
+        public AddCardViewModel AddCardVM { get; set; }
 
         public object CurrentView
         {
@@ -27,10 +29,12 @@ namespace WordReminder_PC.MVVM.ViewModel
         {
             HomeVM = new HomeViewModel();
             CardsVM = new CardsViewModel();
+            AddCardVM = new AddCardViewModel();
             CurrentView = HomeVM;
 
             HomeViewCommand = new RelayCommand(o => { CurrentView = HomeVM; });
             CardsViewCommand = new RelayCommand(o => { CurrentView = CardsVM; });
+            AddCardViewCommand = new RelayCommand(o => { CurrentView = AddCardVM; });
         }
     }
 }

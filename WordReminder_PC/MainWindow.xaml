@@ -6,11 +6,9 @@
         xmlns:local="clr-namespace:WordReminder_PC"
                      xmlns:viewModel="clr-namespace:WordReminder_PC.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1400"
+        Height="800" Width="1400"
         ResizeMode="NoResize" 
-        Background="Transparent"
-        AllowsTransparency="True"
-        WindowStyle="None">
+        Background="#272537">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>

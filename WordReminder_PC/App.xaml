@@ -18,6 +18,10 @@
             <DataTemplate DataType="{x:Type viewModel:CardsViewModel}">
                 <view:CardsView/>
             </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AddCardViewModel}">
+                <view:AddCardView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
