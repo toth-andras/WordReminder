@@ -35,7 +35,7 @@
                 
                 <!-- Меню -->
                 <StackPanel Grid.Row="1" Margin="0, 20, 0, 0">
-                    <RadioButton Content="Home"
+                    <RadioButton Content="Главная"
                                  Height="50"
                                  Foreground="White"
                                  FontSize="20"
@@ -43,20 +43,20 @@
                                  Style="{StaticResource MenuButtonTheme}"
                                  Command="{Binding HomeViewCommand}"/>
 
-                    <RadioButton Content="Cards"
+                    <RadioButton Content="Мои карточки"
                                  Height="50"
                                  Foreground="White"
                                  FontSize="20"
                                  Style="{StaticResource MenuButtonTheme}"
                                  Command="{Binding CardsViewCommand}"/>
                     
-                    <RadioButton Content="Collections"
+                    <RadioButton Content="Мои коллекции"
                                  Height="50"
                                  Foreground="White"
                                  FontSize="20"
                                  Style="{StaticResource MenuButtonTheme}"/>
 
-                    <RadioButton Content="Settings"
+                    <RadioButton Content="Настройки"
                                  Height="50"
                                  Foreground="White"
                                  FontSize="20"
