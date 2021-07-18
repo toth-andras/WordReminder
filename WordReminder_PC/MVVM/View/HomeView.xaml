@@ -6,14 +6,14 @@
              xmlns:local="clr-namespace:WordReminder_PC.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
+    <StackPanel Margin="0,0,-128,0">
         <TextBlock Text="Добро пожаловать!" 
                    Foreground="White" 
                    FontSize="28"
                    HorizontalAlignment="Left"
                    Margin="0, 0, 0, 20"/>
 
-        <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
+        <StackPanel Orientation="Horizontal" Margin="100, 100, 0, 0">
             <!--Кнопка Пройти опрос-->
             <Button x:Name="DoQuizButton"
                     Click="DoQuizButton_Click"  
@@ -53,26 +53,26 @@
             <Button x:Name="AddCardButton"
                     Click="AddCardButton_Click"
                     Height="200"
-                    Width="300"
+                    Width="400"
                     BorderThickness="0"
                     Margin="50, 0, 0, 0">
                 <!--Форма кнопки-->
                 <Button.Clip>
                     <RectangleGeometry RadiusX="10"
                                        RadiusY="10"
-                                       Rect="0,0, 300, 200"/>
+                                       Rect="0,0, 400, 200"/>
                 </Button.Clip>
                 
                 <!--Цвет кнопки-->
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
                         <GradientStop Color="#A274DD" Offset="0.0"/>
-                        <GradientStop Color="#A065ED" Offset="1"/>
+                        <GradientStop Color="#00A1C5" Offset="1"/>
                     </LinearGradientBrush>
                 </Button.Background>
                 
                 <!--Текст кнопки-->
-                <StackPanel>
+                <StackPanel Margin="-60, 0, 0, 0">
                     <TextBlock Text="Добавить&#x0a;карточку"
                                    Foreground="White" 
                                    FontSize="40"

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WordReminder_PC"
                      xmlns:viewModel="clr-namespace:WordReminder_PC.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1020"
+        Title="MainWindow" Height="800" Width="1400"
         ResizeMode="NoResize" 
         Background="Transparent"
         AllowsTransparency="True"
@@ -18,7 +18,7 @@
         <Border Background="#272537">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="250"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -34,11 +34,11 @@
                        Text="WordReminder"/>
                 
                 <!-- Меню -->
-                <StackPanel Grid.Row="1">
+                <StackPanel Grid.Row="1" Margin="0, 20, 0, 0">
                     <RadioButton Content="Home"
                                  Height="50"
                                  Foreground="White"
-                                 FontSize="14"
+                                 FontSize="20"
                                  IsChecked="True"
                                  Style="{StaticResource MenuButtonTheme}"
                                  Command="{Binding HomeViewCommand}"/>
@@ -46,20 +46,20 @@
                     <RadioButton Content="Cards"
                                  Height="50"
                                  Foreground="White"
-                                 FontSize="14"
+                                 FontSize="20"
                                  Style="{StaticResource MenuButtonTheme}"
                                  Command="{Binding CardsViewCommand}"/>
                     
                     <RadioButton Content="Collections"
                                  Height="50"
                                  Foreground="White"
-                                 FontSize="14"
+                                 FontSize="20"
                                  Style="{StaticResource MenuButtonTheme}"/>
 
                     <RadioButton Content="Settings"
                                  Height="50"
                                  Foreground="White"
-                                 FontSize="14"
+                                 FontSize="20"
                                  Style="{StaticResource MenuButtonTheme}"/>
                 </StackPanel>
                 
