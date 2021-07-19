@@ -7,6 +7,144 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1150">
     <Grid>
-        <Label Content="Adding a card" Foreground="White"></Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="133*"/>
+        </Grid.RowDefinitions>
+        <!--Label Добавить карточку-->
+        <Label Grid.Row="0"
+               Content="Добавить карточку"
+               Foreground="White"
+               FontSize="40"
+               Margin="30, 20, 0, 0"/>
+
+        <!--Поля для ввода данных-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="39*"/>
+                <ColumnDefinition Width="1032"/>
+                <ColumnDefinition Width="79*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1">
+                <!--Поле для ввода термина с надписью-->
+                <StackPanel Margin="0, 50, 0, 0">
+                    <Label Content="Термин"
+                   Foreground="White"
+                   FontSize="35"
+                   Margin="100, 0, 0, 10"/>
+
+                    <TextBox Width="750" Height="50"
+                 Background="#353340"
+                 Foreground="White"
+                 BorderThickness="0"
+                 TextAlignment="Left"
+                 HorizontalContentAlignment="Center"
+                 FontSize="35">
+                        <!--Форма поля-->
+                        <TextBox.Clip>
+                            <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0, 750, 50"/>
+                        </TextBox.Clip>
+                    </TextBox>
+                </StackPanel>
+
+                <!--Поле для ввода значения с надписью-->
+                <StackPanel Margin="0, 50, 0, 0">
+                    <Label Content="Значение"
+                   Foreground="White"
+                   FontSize="35"
+                   Margin="100, 0, 0, 10"/>
+
+                    <TextBox Width="750" Height="50"
+                 Background="#353340"
+                 Foreground="White"
+                 BorderThickness="0"
+                 TextAlignment="Left"
+                 HorizontalContentAlignment="Center"
+                 FontSize="35">
+                        <!--Форма поля-->
+                        <TextBox.Clip>
+                            <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0, 750, 50"/>
+                        </TextBox.Clip>
+                    </TextBox>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="780"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1" Margin="170, -100, 0, 0">
+                <!--Кнопка создать-->
+                <Button 
+                    x:Name="CreateCardButton"
+                    BorderThickness="0"
+                    Height="50"
+                    Width="200"
+                    Click="CreateCardButton_Click">
+                    <!--Форма кнопки-->
+                    <Button.Clip>
+                        <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0, 200, 50"/>
+                    </Button.Clip>
+
+                    <!--Цвет кнопки-->
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
+                            <GradientStop Color="#00C58A" Offset="0.0"/>
+                            <GradientStop Color="#A274DD" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+
+                    <!--Содержимое кнопки-->
+                    <Grid>
+                        <TextBlock Text="Создать"
+                                   FontSize="25"
+                                   Foreground="White"/>
+                    </Grid>
+                </Button>
+
+                <!--Кнопка отменить-->
+                <Button  x:Name="CancelButton"
+                         BorderThickness="0"
+                         Height="50"
+                         Width="200"
+                         Margin="10, 0, 0, 0"
+                         Click="CancelButton_Click">
+                    <!--Форма кнопки-->
+                    <Button.Clip>
+                        <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0, 200, 50"/>
+                    </Button.Clip>
+
+                    <!--Цвет кнопки-->
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
+                            <GradientStop Color="Red" Offset="1"/>
+                            <GradientStop Color="#FE6584" Offset="0.0"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+
+                    <!--Содержимое кнопки-->
+                    <Grid>
+                        <TextBlock Text="Отменить"
+                                   FontSize="25"
+                                   Foreground="White"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

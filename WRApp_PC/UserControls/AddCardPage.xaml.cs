@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using WRApp_PC.Core;
+
 namespace WRApp_PC.UserControls
 {
     /// <summary>
@@ -23,6 +25,18 @@ namespace WRApp_PC.UserControls
         public AddCardPage()
         {
             InitializeComponent();
+        }
+
+        // Создаем новую карточку
+        private void CreateCardButton_Click(object sender, RoutedEventArgs e)
+        {
+            PageManager.ChangePage(Pages.Main);
+        }
+
+        // Отмена
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            PageManager.ChangePage(Pages.Main);
         }
     }
 }
