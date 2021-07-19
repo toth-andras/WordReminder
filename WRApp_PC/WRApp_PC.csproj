@@ -64,6 +64,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Core\PageManager.cs" />
+    <Compile Include="SpecialUIElements\CardUILayout.xaml.cs">
+      <DependentUpon>CardUILayout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddCardPage.xaml.cs">
       <DependentUpon>AddCardPage.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SpecialUIElements\CardUILayout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\MenuButtonTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -4,333 +4,37 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WRApp_PC.UserControls"
+             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1150">
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="0,20,0,20">
-            <StackPanel>
-                <Button  Margin="0, 10, 0, 0"
-                    BorderThickness="0"
-                    Height="200"
-                    Width="700">
-                    <!--Форма кнопки-->
-                    <Button.Clip>
-                        <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0, 700, 200"/>
-                    </Button.Clip>
-
-                    <!--Цвет кнопки-->
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
-                            <GradientStop Color="#00C58A" Offset="0.0"/>
-                            <GradientStop Color="#A274DD" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-
-                    <!--Текст кнопки-->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Карточка&#x0a;"
-                                   Foreground="White" 
-                                   FontSize="40"
-                                   Margin="20, 10, 10, 0"/>
-
-                        <TextBlock Text="Проверьте свои знания или выучите&#x0a;что-то новое"
-                                   Foreground="White" 
-                                   FontSize="20"
-                                   Margin="20, 10, 10, 0"/>
-                    </StackPanel>
-                </Button>
-                <Button  Margin="0, 10, 0, 0"
-                    BorderThickness="0"
-                    Height="200"
-                    Width="700">
-                    <!--Форма кнопки-->
-                    <Button.Clip>
-                        <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0, 700, 200"/>
-                    </Button.Clip>
-
-                    <!--Цвет кнопки-->
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
-                            <GradientStop Color="#00C58A" Offset="0.0"/>
-                            <GradientStop Color="#A274DD" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-
-                    <!--Текст кнопки-->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Карточка&#x0a;"
-                                   Foreground="White" 
-                                   FontSize="40"
-                                   Margin="20, 10, 10, 0"/>
-
-                        <TextBlock Text="Проверьте свои знания или выучите&#x0a;что-то новое"
-                                   Foreground="White" 
-                                   FontSize="20"
-                                   Margin="20, 10, 10, 0"/>
-                    </StackPanel>
-                </Button>
-                <Button  Margin="0, 10, 0, 0"
-                    BorderThickness="0"
-                    Height="200"
-                    Width="700">
-                    <!--Форма кнопки-->
-                    <Button.Clip>
-                        <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0, 700, 200"/>
-                    </Button.Clip>
-
-                    <!--Цвет кнопки-->
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
-                            <GradientStop Color="#00C58A" Offset="0.0"/>
-                            <GradientStop Color="#A274DD" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-
-                    <!--Текст кнопки-->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Карточка&#x0a;"
-                                   Foreground="White" 
-                                   FontSize="40"
-                                   Margin="20, 10, 10, 0"/>
-
-                        <TextBlock Text="Проверьте свои знания или выучите&#x0a;что-то новое"
-                                   Foreground="White" 
-                                   FontSize="20"
-                                   Margin="20, 10, 10, 0"/>
-                    </StackPanel>
-                </Button>
-                <Button  Margin="0, 10, 0, 0"
-                    BorderThickness="0"
-                    Height="200"
-                    Width="700">
-                    <!--Форма кнопки-->
-                    <Button.Clip>
-                        <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0, 700, 200"/>
-                    </Button.Clip>
-
-                    <!--Цвет кнопки-->
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
-                            <GradientStop Color="#00C58A" Offset="0.0"/>
-                            <GradientStop Color="#A274DD" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-
-                    <!--Текст кнопки-->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Карточка&#x0a;"
-                                   Foreground="White" 
-                                   FontSize="40"
-                                   Margin="20, 10, 10, 0"/>
-
-                        <TextBlock Text="Проверьте свои знания или выучите&#x0a;что-то новое"
-                                   Foreground="White" 
-                                   FontSize="20"
-                                   Margin="20, 10, 10, 0"/>
-                    </StackPanel>
-                </Button>
-                <Button  Margin="0, 10, 0, 0"
-                    BorderThickness="0"
-                    Height="200"
-                    Width="700">
-                    <!--Форма кнопки-->
-                    <Button.Clip>
-                        <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0, 700, 200"/>
-                    </Button.Clip>
-
-                    <!--Цвет кнопки-->
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
-                            <GradientStop Color="#00C58A" Offset="0.0"/>
-                            <GradientStop Color="#A274DD" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-
-                    <!--Текст кнопки-->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Карточка&#x0a;"
-                                   Foreground="White" 
-                                   FontSize="40"
-                                   Margin="20, 10, 10, 0"/>
-
-                        <TextBlock Text="Проверьте свои знания или выучите&#x0a;что-то новое"
-                                   Foreground="White" 
-                                   FontSize="20"
-                                   Margin="20, 10, 10, 0"/>
-                    </StackPanel>
-                </Button>
-                <Button  Margin="0, 10, 0, 0"
-                    BorderThickness="0"
-                    Height="200"
-                    Width="700">
-                    <!--Форма кнопки-->
-                    <Button.Clip>
-                        <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0, 700, 200"/>
-                    </Button.Clip>
-
-                    <!--Цвет кнопки-->
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
-                            <GradientStop Color="#00C58A" Offset="0.0"/>
-                            <GradientStop Color="#A274DD" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-
-                    <!--Текст кнопки-->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Карточка&#x0a;"
-                                   Foreground="White" 
-                                   FontSize="40"
-                                   Margin="20, 10, 10, 0"/>
-
-                        <TextBlock Text="Проверьте свои знания или выучите&#x0a;что-то новое"
-                                   Foreground="White" 
-                                   FontSize="20"
-                                   Margin="20, 10, 10, 0"/>
-                    </StackPanel>
-                </Button>
-                <Button  Margin="0, 10, 0, 0"
-                    BorderThickness="0"
-                    Height="200"
-                    Width="700">
-                    <!--Форма кнопки-->
-                    <Button.Clip>
-                        <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0, 700, 200"/>
-                    </Button.Clip>
-
-                    <!--Цвет кнопки-->
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
-                            <GradientStop Color="#00C58A" Offset="0.0"/>
-                            <GradientStop Color="#A274DD" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-
-                    <!--Текст кнопки-->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Карточка&#x0a;"
-                                   Foreground="White" 
-                                   FontSize="40"
-                                   Margin="20, 10, 10, 0"/>
-
-                        <TextBlock Text="Проверьте свои знания или выучите&#x0a;что-то новое"
-                                   Foreground="White" 
-                                   FontSize="20"
-                                   Margin="20, 10, 10, 0"/>
-                    </StackPanel>
-                </Button>
-                <Button  Margin="0, 10, 0, 0"
-                    BorderThickness="0"
-                    Height="200"
-                    Width="700">
-                    <!--Форма кнопки-->
-                    <Button.Clip>
-                        <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0, 700, 200"/>
-                    </Button.Clip>
-
-                    <!--Цвет кнопки-->
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
-                            <GradientStop Color="#00C58A" Offset="0.0"/>
-                            <GradientStop Color="#A274DD" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-
-                    <!--Текст кнопки-->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Карточка&#x0a;"
-                                   Foreground="White" 
-                                   FontSize="40"
-                                   Margin="20, 10, 10, 0"/>
-
-                        <TextBlock Text="Проверьте свои знания или выучите&#x0a;что-то новое"
-                                   Foreground="White" 
-                                   FontSize="20"
-                                   Margin="20, 10, 10, 0"/>
-                    </StackPanel>
-                </Button>
-                <Button  Margin="0, 10, 0, 0"
-                    BorderThickness="0"
-                    Height="200"
-                    Width="700">
-                    <!--Форма кнопки-->
-                    <Button.Clip>
-                        <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0, 700, 200"/>
-                    </Button.Clip>
-
-                    <!--Цвет кнопки-->
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
-                            <GradientStop Color="#00C58A" Offset="0.0"/>
-                            <GradientStop Color="#A274DD" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-
-                    <!--Текст кнопки-->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Карточка&#x0a;"
-                                   Foreground="White" 
-                                   FontSize="40"
-                                   Margin="20, 10, 10, 0"/>
-
-                        <TextBlock Text="Проверьте свои знания или выучите&#x0a;что-то новое"
-                                   Foreground="White" 
-                                   FontSize="20"
-                                   Margin="20, 10, 10, 0"/>
-                    </StackPanel>
-                </Button>
-                <Button  Margin="0, 10, 0, 0"
-                    BorderThickness="0"
-                    Height="200"
-                    Width="700">
-                    <!--Форма кнопки-->
-                    <Button.Clip>
-                        <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0, 700, 200"/>
-                    </Button.Clip>
-
-                    <!--Цвет кнопки-->
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
-                            <GradientStop Color="#00C58A" Offset="0.0"/>
-                            <GradientStop Color="#A274DD" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-
-                    <!--Текст кнопки-->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Карточка&#x0a;"
-                                   Foreground="White" 
-                                   FontSize="40"
-                                   Margin="20, 10, 10, 0"/>
-
-                        <TextBlock Text="Проверьте свои знания или выучите&#x0a;что-то новое"
-                                   Foreground="White" 
-                                   FontSize="20"
-                                   Margin="20, 10, 10, 0"/>
-                    </StackPanel>
-                </Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="700*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Бровь-->
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal">
+            <TextBlock Text="Ваши карточки:"
+                       Foreground="White"
+                       FontSize="40"
+                       Margin="40, 20, 0, 0"/>
+        </StackPanel>
+        
+        <!--Отображения карточек-->
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Visible"
+                      HorizontalScrollBarVisibility="Disabled"
+                      Margin="0,20,0,20">
+            <StackPanel x:Name="CardsStack">
+                <!--Отступы между отображениями карточек-->
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="0,0,0,5"/>
+                    </Style>
+                </StackPanel.Resources>
             </StackPanel>
         </ScrollViewer>
-
     </Grid>
 </UserControl>

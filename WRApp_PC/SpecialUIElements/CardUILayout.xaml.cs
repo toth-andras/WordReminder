@@ -13,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using WRApp_PC.SpecialUIElements;
-
-namespace WRApp_PC.UserControls
+namespace WRApp_PC.SpecialUIElements
 {
     /// <summary>
-    /// Interaction logic for CardsShowerPage.xaml
+    /// Interaction logic for CardUILayout.xaml
     /// </summary>
-    public partial class CardsShowerPage : UserControl
+    public partial class CardUILayout : UserControl
     {
-        public CardsShowerPage()
+        public CardUILayout()
         {
             InitializeComponent();
-            for (int i = 0; i < 10; i++)
-            {
-                CardsStack.Children.Add(new CardUILayout());
-            }
         }
     }
 }
