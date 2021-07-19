@@ -7,14 +7,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1150">
     <Grid>
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="120*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Label Добро пожаловать-->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="29*"/>
+                <ColumnDefinition Width="390"/>
+                <ColumnDefinition Width="161*"/>
+            </Grid.ColumnDefinitions>
+
             <TextBlock Text="Добро пожаловать!" 
+                       Grid.Column="1"
                    Foreground="White" 
                    FontSize="40"
                    HorizontalAlignment="Left"
-                   Margin="40, 70, 0, 20"/>
+                   Margin="0, 70, 0, 20" Width="363"/>
+        </Grid>
+        
+        <!--Кнопки пройти опрос и добавить карточку-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="159*"/>
+                <ColumnDefinition Width="851"/>
+                <ColumnDefinition Width="140*"/>
+            </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Horizontal" Margin="120, 100, 0, 0">
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                 <!--Кнопка Пройти опрос-->
                 <Button x:Name="DoQuizButton"
                     BorderThickness="0"
@@ -56,7 +79,7 @@
                         Height="200"
                         Width="400"
                         Click="AddCardButton_Click">
-                    
+
                     <!--Форма кнопки-->
                     <Button.Clip>
                         <RectangleGeometry RadiusX="10"
@@ -86,6 +109,6 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-        </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>
