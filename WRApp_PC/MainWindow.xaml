@@ -10,8 +10,8 @@
         Background="#272537">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="1150*"/>
         </Grid.ColumnDefinitions>
         
         <!--Меню-->
