@@ -87,9 +87,21 @@
     <Compile Include="WRLibrary\Cards\CardStorage.cs" />
     <Compile Include="WRLibrary\Cards\Card_main.cs" />
     <Compile Include="WRLibrary\Cards\Card_rating.cs" />
+    <Compile Include="WRLibrary\Exceptions\CardAlreadyExistsException.cs" />
+    <Compile Include="WRLibrary\Exceptions\FutureDateException.cs" />
+    <Compile Include="WRLibrary\Exceptions\NullOrEmptyStringException.cs" />
+    <Compile Include="WRLibrary\Exceptions\UserAnswerOnQuestionException.cs" />
+    <Compile Include="WRLibrary\ListExtension.cs" />
+    <Compile Include="WRLibrary\Questions\AskForValueQuestion.cs" />
+    <Compile Include="WRLibrary\Questions\IQuestion.cs" />
+    <Compile Include="WRLibrary\Quizzes\IQuiz.cs" />
+    <Compile Include="WRLibrary\Quizzes\Quiz creators\AskForValueQuizCreator.cs" />
+    <Compile Include="WRLibrary\Quizzes\Quiz creators\IQuizCreator.cs" />
+    <Compile Include="WRLibrary\Quizzes\RemindQuiz.cs" />
     <Compile Include="WRLibrary\Services\IO\CardIOModel.cs" />
     <Compile Include="WRLibrary\Services\IO\CardIOService.cs" />
     <Compile Include="WRLibrary\Services\IO\CardIOServiceException.cs" />
+    <Compile Include="WRLibrary\UserAnswer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
