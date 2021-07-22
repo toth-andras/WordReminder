@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using WRApp_PC.Core;
+using WRApp_PC.WRLibrary;
+using WRApp_PC.SpecialUIElements;
 
 namespace WRApp_PC.UserControls
 {
@@ -30,13 +32,41 @@ namespace WRApp_PC.UserControls
         // Создаем новую карточку
         private void CreateCardButton_Click(object sender, RoutedEventArgs e)
         {
-            PageManager.ChangePage(Pages.Main);
+            try
+            {
+                Card card = new Card(TermTextBox.Text, ValueTextBox.Text);
+                WRLibraryManager.CardStorage.AddCard(card);
+
+                ClearFields();
+                PageManager.ChangePage(Pages.Main);
+            }
+            // Ошибка: передана пустая строчка или null.
+            catch (NullOrEmptyStringException)
+            {
+                ErrorPlace.Children.Clear();
+                ErrorPlace.Children.Add(new ErrorLayout("Неверный формат"));
+            }
+            // Ошибка: такая карточка уже была создана.
+            catch (CardAlreadyExistsException)
+            {
+                ErrorPlace.Children.Clear();
+                ErrorPlace.Children.Add(new ErrorLayout("Такая карточка уже есть"));
+            }
         }
 
         // Отмена
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
+            ClearFields();
             PageManager.ChangePage(Pages.Main);
+        }
+
+        // Очистить страницу для следующего открытия.
+        private void ClearFields()
+        {
+            TermTextBox.Text = "";
+            ValueTextBox.Text = "";
+            ErrorPlace.Children.Clear();
         }
     }
 }

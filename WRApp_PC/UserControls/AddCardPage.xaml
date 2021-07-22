@@ -35,13 +35,14 @@
                    FontSize="35"
                    Margin="100, 0, 0, 10"/>
 
-                    <TextBox Width="750" Height="50"
-                 Background="#353340"
-                 Foreground="White"
-                 BorderThickness="0"
-                 TextAlignment="Left"
-                 HorizontalContentAlignment="Center"
-                 FontSize="35">
+                    <TextBox x:Name="TermTextBox"
+                             Width="750" Height="50"
+                             Background="#353340"
+                             Foreground="White"
+                             BorderThickness="0"
+                             TextAlignment="Left"
+                             HorizontalContentAlignment="Center"
+                             FontSize="35">
                         <!--Форма поля-->
                         <TextBox.Clip>
                             <RectangleGeometry RadiusX="10"
@@ -58,13 +59,14 @@
                    FontSize="35"
                    Margin="100, 0, 0, 10"/>
 
-                    <TextBox Width="750" Height="50"
-                 Background="#353340"
-                 Foreground="White"
-                 BorderThickness="0"
-                 TextAlignment="Left"
-                 HorizontalContentAlignment="Center"
-                 FontSize="35">
+                    <TextBox x:Name="ValueTextBox"
+                             Width="750" Height="50"
+                             Background="#353340"
+                             Foreground="White"
+                             BorderThickness="0"
+                             TextAlignment="Left"
+                             HorizontalContentAlignment="Center"
+                             FontSize="35">
                         <!--Форма поля-->
                         <TextBox.Clip>
                             <RectangleGeometry RadiusX="10"
@@ -72,6 +74,11 @@
                                        Rect="0,0, 750, 50"/>
                         </TextBox.Clip>
                     </TextBox>
+                </StackPanel>
+                
+                <!--Место для отображения ошибок-->
+                <StackPanel x:Name="ErrorPlace" Margin="0, 30, 0, 0" >
+                    
                 </StackPanel>
             </StackPanel>
         </Grid>

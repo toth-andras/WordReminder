@@ -8,10 +8,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="500">
     <Grid>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal"
+                    Margin="120, 0, 0, 0">
             <materialDesign:PackIcon Kind="Error" Foreground="Red" Width="30" Height="30" VerticalAlignment="Center"/>
             <TextBlock x:Name="ErrorTextField"
-                       Margin="10, 10, 0, 0"
+                       Margin="10, 0, 0, 0"
                        Text="Error"
                        FontSize="20"
                        Foreground="Red"/>

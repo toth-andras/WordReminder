@@ -20,9 +20,15 @@ namespace WRApp_PC.SpecialUIElements
     /// </summary>
     public partial class ErrorLayout : UserControl
     {
-        public ErrorLayout()
+        public ErrorLayout(string errorText = "Ошибка!")
         {
             InitializeComponent();
+            if (errorText == null)
+            {
+                throw new NullReferenceException("Parameter 'errorText' was null.") { Source = "ErrorLayout.ErrorLayout(string)" };
+            }
+
+            ErrorTextField.Text = errorText;
         }
     }
 }
