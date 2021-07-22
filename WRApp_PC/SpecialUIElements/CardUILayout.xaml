@@ -40,7 +40,7 @@
                                    Height="60"
                                    Margin="-300 -70, 0, 0"/>
                     <!--Текст значения-->
-                    <TextBlock     x:Name="ValueextBlock"
+                    <TextBlock     x:Name="ValueTextBlock"
                                    Text="Значение"
                                    Foreground="White" 
                                    FontSize="25"

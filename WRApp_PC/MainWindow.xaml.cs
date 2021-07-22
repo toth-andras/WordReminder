@@ -25,6 +25,9 @@ namespace WRApp_PC
         public MainWindow()
         {
             InitializeComponent();
+
+            WRLibraryManager.Initialize();
+
             PageManager.Initialize(MainGrid);
             PageManager.ChangePage(Pages.Main);
         }
@@ -38,7 +41,5 @@ namespace WRApp_PC
         {
             PageManager.ChangePage(Pages.CardsShower);
         }
-
-
     }
 }

@@ -16,7 +16,8 @@
         <!--Бровь-->
         <StackPanel Grid.Row="0"
                     Orientation="Horizontal">
-            <TextBlock Text="Ваши карточки:"
+            <TextBlock x:Name="PageNameLabel"
+                       Text="Ваши карточки:"
                        Foreground="White"
                        FontSize="40"
                        Margin="40, 20, 0, 0"/>

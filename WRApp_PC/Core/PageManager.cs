@@ -44,6 +44,7 @@ namespace WRApp_PC.Core
                     grid.Children.Add(mainPage);
                     break;
                 case Pages.CardsShower:
+                    cardsShowerPage.RefreshContent();
                     grid.Children.Add(cardsShowerPage);
                     break;
                 case Pages.AddCard:

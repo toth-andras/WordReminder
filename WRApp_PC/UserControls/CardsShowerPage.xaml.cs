@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using WRApp_PC.Core;
+using WRApp_PC.WRLibrary;
 using WRApp_PC.SpecialUIElements;
 
 namespace WRApp_PC.UserControls
@@ -25,9 +27,26 @@ namespace WRApp_PC.UserControls
         public CardsShowerPage()
         {
             InitializeComponent();
-            for (int i = 0; i < 10; i++)
+        }
+        /// <summary>
+        /// Обновить список карточек для отображения.
+        /// </summary>
+        public void RefreshContent()
+        {
+            CardsStack.Children.Clear();
+            Card[] cardsToShow = WRLibraryManager.CardStorage.GetAllCards();
+            if (cardsToShow.Length == 0)
             {
-                CardsStack.Children.Add(new CardUILayout());
+                PageNameLabel.Text = "Вы пока не добавили ни одной карточки.";
+            }
+            else
+            {
+                PageNameLabel.Text = $"Ваши карточки ({cardsToShow.Length}):";
+
+                foreach (Card card in cardsToShow)
+                {
+                    CardsStack.Children.Add(new CardUILayout(card));
+                }
             }
         }
     }

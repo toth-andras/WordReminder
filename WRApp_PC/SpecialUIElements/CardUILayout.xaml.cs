@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using WRApp_PC.WRLibrary;
+
 namespace WRApp_PC.SpecialUIElements
 {
     /// <summary>
@@ -20,9 +22,17 @@ namespace WRApp_PC.SpecialUIElements
     /// </summary>
     public partial class CardUILayout : UserControl
     {
-        public CardUILayout()
+        public CardUILayout(Card card)
         {
             InitializeComponent();
+
+            if (card is null)
+            {
+                throw new NullReferenceException("Parameter 'card' was null.") { Source = "CardUILayout.CardUILayout(Card)" };
+            }
+
+            TermTextBlock.Text = card.Term;
+            ValueTextBlock.Text = card.Value;
         }
     }
 }
