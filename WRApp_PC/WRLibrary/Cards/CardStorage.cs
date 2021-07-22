@@ -90,6 +90,8 @@ namespace WRApp_PC.WRLibrary
                 throw new NullReferenceException("Parameter 'card' in method RemoveCard of class CardStorage was null.");
             }
             cards.Remove(card);
+
+            Save();
         }
 
         public void Save()

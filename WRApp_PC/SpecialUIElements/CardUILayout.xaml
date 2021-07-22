@@ -69,7 +69,9 @@
                     </Button>
                     
                     <!--Кнопка удалить-->
-                    <Button Height="45" Width="45"
+                    <Button x:Name="RemoveButton"
+                            Click="RemoveButton_Click"
+                            Height="45" Width="45"
                             BorderThickness="0"
                             Background="Transparent">
                         <!--Подсказка к кнопке-->

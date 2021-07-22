@@ -45,7 +45,12 @@ namespace WRApp_PC.UserControls
 
                 foreach (Card card in cardsToShow)
                 {
-                    CardsStack.Children.Add(new CardUILayout(card));
+                    CardUILayout layout = new CardUILayout(card);
+                    // Подписка на событие для корректного обновления
+                    // отображаемого списка.
+                    layout.AfterDelete += RefreshContent;
+
+                    CardsStack.Children.Add(layout);
                 }
             }
         }

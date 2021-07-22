@@ -43,13 +43,16 @@ namespace WRApp_PC.Core
                 case Pages.Main:
                     grid.Children.Add(mainPage);
                     break;
+
                 case Pages.CardsShower:
                     cardsShowerPage.RefreshContent();
                     grid.Children.Add(cardsShowerPage);
                     break;
+
                 case Pages.AddCard:
                     grid.Children.Add(addCardPage);
                     break;
+
                 default:
                     break;
             }

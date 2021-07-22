@@ -13,15 +13,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using WRApp_PC.Core;
 using WRApp_PC.WRLibrary;
 
 namespace WRApp_PC.SpecialUIElements
 {
     /// <summary>
-    /// Interaction logic for CardUILayout.xaml
+    /// Класс для отображения пользователю экземпляра класса WRLibrary.Card.
     /// </summary>
     public partial class CardUILayout : UserControl
     {
+        // Отображаемая карточка.
+        private Card card;
+
+        /// <summary>
+        /// Событие, которое вызывается после удаления.
+        /// </summary>
+        public event Action AfterDelete;
+
         public CardUILayout(Card card)
         {
             InitializeComponent();
@@ -30,9 +39,20 @@ namespace WRApp_PC.SpecialUIElements
             {
                 throw new NullReferenceException("Parameter 'card' was null.") { Source = "CardUILayout.CardUILayout(Card)" };
             }
+            this.card = card;
 
             TermTextBlock.Text = card.Term;
             ValueTextBlock.Text = card.Value;
+        }
+
+        // Удаление карточки
+        private void RemoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Удалить эту карточку?", "Подтвердите действие", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                WRLibraryManager.CardStorage.RemoveCard(card);
+                AfterDelete?.Invoke();
+            }
         }
     }
 }
