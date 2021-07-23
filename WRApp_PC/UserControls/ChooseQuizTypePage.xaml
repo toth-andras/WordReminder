@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="WRApp_PC.UserControls.ChooseQuizTypePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WRApp_PC.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1150">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="700*"/>
+        </Grid.RowDefinitions>
+
+        <!--Бровь-->
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal">
+            <TextBlock x:Name="PageNameLabel"
+                       Text="Выберите тип опроса"
+                       Foreground="White"
+                       FontSize="40"
+                       Margin="40, 20, 0, 0"/>
+        </StackPanel>
+
+        <!--Кнопки для выбора типа опроса-->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1020"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="1">
+                    <Button Width="500" Height="300">
+                        <!--Форма кнопки-->
+                        <Button.Clip>
+                            <RectangleGeometry RadiusX="20"
+                                       RadiusY="20"
+                                       Rect="0,0, 500, 300"/>
+                        </Button.Clip>
+                    </Button>
+                    <Button Width="500" Height="300"
+                        Margin="20, 0, 0, 0">
+                        <!--Форма кнопки-->
+                        <Button.Clip>
+                            <RectangleGeometry RadiusX="20"
+                                       RadiusY="20"
+                                       Rect="0,0, 500, 300"/>
+                        </Button.Clip>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

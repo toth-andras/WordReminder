@@ -13,28 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using WRApp_PC.Core;
-
 namespace WRApp_PC.UserControls
 {
     /// <summary>
-    /// Interaction logic for MainPage.xaml
+    /// Interaction logic for ChooseQuizTypePage.xaml
     /// </summary>
-    public partial class MainPage : UserControl
+    public partial class ChooseQuizTypePage : UserControl
     {
-        public MainPage()
+        public ChooseQuizTypePage()
         {
             InitializeComponent();
-        }
-
-        private void AddCardButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageManager.ChangePage(Pages.AddCard);
-        }
-
-        private void DoQuizButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageManager.ChangePage(Pages.ChooseQuizType);
         }
     }
 }

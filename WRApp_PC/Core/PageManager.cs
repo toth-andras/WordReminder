@@ -10,7 +10,7 @@ using WRApp_PC.UserControls;
 
 namespace WRApp_PC.Core
 {
-    public enum Pages { Main, CardsShower, AddCard, EditCard}
+    public enum Pages { Main, CardsShower, AddCard, EditCard, ChooseQuizType}
 
     /// <summary>
     /// Осуществляет контроль над страницами главной части приложения.
@@ -20,6 +20,7 @@ namespace WRApp_PC.Core
         static MainPage mainPage;
         static CardsShowerPage cardsShowerPage;
         static AddEditCardPage addEditCardPage;
+        static ChooseQuizTypePage chooseQuizTypePage;
 
         static Grid grid;
 
@@ -34,6 +35,7 @@ namespace WRApp_PC.Core
             mainPage = new MainPage();
             cardsShowerPage = new CardsShowerPage();
             addEditCardPage = new AddEditCardPage();
+            chooseQuizTypePage = new ChooseQuizTypePage();
         }
 
         public static void ChangePage(Pages page, object valueToPass = null)
@@ -67,6 +69,11 @@ namespace WRApp_PC.Core
                     }
                     addEditCardPage = new AddEditCardPage((Card)valueToPass);
                     grid.Children.Add(addEditCardPage);
+                    break;
+
+                case Pages.ChooseQuizType:
+                    grid.Children.Clear();
+                    grid.Children.Add(chooseQuizTypePage);
                     break;
 
                 default:

@@ -40,9 +40,10 @@
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                 <!--Кнопка Пройти опрос-->
                 <Button x:Name="DoQuizButton"
-                    BorderThickness="0"
-                    Height="200"
-                    Width="400">
+                        Click="DoQuizButton_Click"
+                        BorderThickness="0"
+                        Height="200"
+                        Width="400">
                     <!--Форма кнопки-->
                     <Button.Clip>
                         <RectangleGeometry RadiusX="10"
