@@ -38,6 +38,7 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="1">
+                    <!--Кнопка Опрос-Повторение-->
                     <Button Width="500" Height="300">
                         <!--Форма кнопки-->
                         <Button.Clip>
@@ -45,7 +46,21 @@
                                        RadiusY="20"
                                        Rect="0,0, 500, 300"/>
                         </Button.Clip>
+
+                        <StackPanel Margin="-80, -40, 0, 0">
+                            <TextBlock Text="Повторение"
+                                   Foreground="Black" 
+                                   FontSize="70"
+                                   Margin="0, 00, 0, 0"/>
+
+                            <TextBlock Text="Проверьте, что Вы помните,&#x0a;а что нужно повторить"
+                                   Foreground="Black" 
+                                   FontSize="25"
+                                   Margin="20, 50, 10, 0"/>
+                        </StackPanel>
                     </Button>
+                    
+                    <!-- Кнопка Опрос-Заучивание -->
                     <Button Width="500" Height="300"
                         Margin="20, 0, 0, 0">
                         <!--Форма кнопки-->
