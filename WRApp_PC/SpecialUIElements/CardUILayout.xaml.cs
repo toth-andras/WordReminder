@@ -54,5 +54,11 @@ namespace WRApp_PC.SpecialUIElements
                 AfterDelete?.Invoke();
             }
         }
+
+        // Редактирование карточки
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            PageManager.ChangePage(Pages.EditCard, card);
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace WRApp_PC.WRLibrary
     /// <summary>
     /// Базовый класс для представления любой пары "Значение 1 (термин) - Значение 2 (перевод)".
     /// </summary>
-    public partial class Card
+    public partial class Card: ICloneable
     {
         #region Properties
         /// <summary>
@@ -98,6 +98,23 @@ namespace WRApp_PC.WRLibrary
         public CardIOModel ToIOModel()
         {
             return new CardIOModel(Term, Value, Category, totalMistakesCount, totalCorrectAnswerCount, CreationDate, lastMistakeDate, lastUsedDate, lastAnswer);
+        }
+
+        public object Clone()
+        {
+            Card card = new Card((string)this.Term.Clone(), (string)this.Value.Clone());
+            card.CreationDate = this.CreationDate;
+            if (!(card.Category is null))
+            {
+                card.Category = (CardCategory)this.Category.Clone();
+            }
+            card.lastAnswer = this.lastAnswer;
+            card.lastMistakeDate = this.lastMistakeDate;
+            card.lastUsedDate = this.lastUsedDate;
+            card.totalCorrectAnswerCount = this.totalCorrectAnswerCount;
+            card.totalMistakesCount = this.totalMistakesCount;
+
+            return card;
         }
 
         public static bool operator ==(Card card1, Card card2)

@@ -75,8 +75,8 @@
     <Compile Include="SpecialUIElements\ErrorLayout.xaml.cs">
       <DependentUpon>ErrorLayout.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AddCardPage.xaml.cs">
-      <DependentUpon>AddCardPage.xaml</DependentUpon>
+    <Compile Include="UserControls\AddEditCardPage.xaml.cs">
+      <DependentUpon>AddEditCardPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\CardsShowerPage.xaml.cs">
       <DependentUpon>CardsShowerPage.xaml</DependentUpon>
@@ -132,7 +132,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\AddCardPage.xaml">
+    <Page Include="UserControls\AddEditCardPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

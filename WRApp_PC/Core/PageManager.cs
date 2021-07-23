@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+
+using WRApp_PC.WRLibrary;
 using WRApp_PC.UserControls;
 
 namespace WRApp_PC.Core
 {
-    public enum Pages { Main, CardsShower, AddCard}
+    public enum Pages { Main, CardsShower, AddCard, EditCard}
 
     /// <summary>
     /// Осуществляет контроль над страницами главной части приложения.
@@ -17,7 +19,7 @@ namespace WRApp_PC.Core
     {
         static MainPage mainPage;
         static CardsShowerPage cardsShowerPage;
-        static AddCardPage addCardPage;
+        static AddEditCardPage addEditCardPage;
 
         static Grid grid;
 
@@ -31,10 +33,10 @@ namespace WRApp_PC.Core
 
             mainPage = new MainPage();
             cardsShowerPage = new CardsShowerPage();
-            addCardPage = new AddCardPage();
+            addEditCardPage = new AddEditCardPage();
         }
 
-        public static void ChangePage(Pages page)
+        public static void ChangePage(Pages page, object valueToPass = null)
         {
             grid.Children.Clear();
 
@@ -50,7 +52,21 @@ namespace WRApp_PC.Core
                     break;
 
                 case Pages.AddCard:
-                    grid.Children.Add(addCardPage);
+                    addEditCardPage = new AddEditCardPage();
+                    grid.Children.Add(addEditCardPage);
+                    break;
+
+                case Pages.EditCard:
+                    if (valueToPass == null)
+                    {
+                        throw new NullReferenceException("Parameter 'valueToPass' was null.") { Source="PageManager.ChangePage(Pages, object)"};
+                    }
+                    if (!(valueToPass is Card))
+                    {
+                        throw new ArgumentException("Parameter 'valueToPass' was not Card.") { Source = "PageManager.ChangePage(Pages, object)" };
+                    }
+                    addEditCardPage = new AddEditCardPage((Card)valueToPass);
+                    grid.Children.Add(addEditCardPage);
                     break;
 
                 default:

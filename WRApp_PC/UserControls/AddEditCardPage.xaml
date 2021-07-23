@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WRApp_PC.UserControls.AddCardPage"
+﻿<UserControl x:Class="WRApp_PC.UserControls.AddEditCardPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,7 +13,8 @@
             <RowDefinition Height="133*"/>
         </Grid.RowDefinitions>
         <!--Label Добавить карточку-->
-        <Label Grid.Row="0"
+        <Label x:Name="PageNameLabel"
+               Grid.Row="0"
                Content="Добавить карточку"
                Foreground="White"
                FontSize="40"
@@ -94,11 +95,11 @@
                         Grid.Column="1" Margin="170, -100, 0, 0">
                 <!--Кнопка создать-->
                 <Button 
-                    x:Name="CreateCardButton"
+                    x:Name="AddEditCardButton"
                     BorderThickness="0"
                     Height="50"
                     Width="200"
-                    Click="CreateCardButton_Click">
+                    Click="AddEditCardButton_Click">
                     <!--Форма кнопки-->
                     <Button.Clip>
                         <RectangleGeometry RadiusX="10"
@@ -116,7 +117,8 @@
 
                     <!--Содержимое кнопки-->
                     <Grid>
-                        <TextBlock Text="Создать"
+                        <TextBlock x:Name="AddEditButtonText"
+                                   Text="Создать"
                                    FontSize="25"
                                    Foreground="White"/>
                     </Grid>

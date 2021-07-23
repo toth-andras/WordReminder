@@ -9,7 +9,7 @@ namespace WRApp_PC.WRLibrary
     /// <summary>
     /// Базовый класс для представления категории карточки.
     /// </summary>
-    public class CardCategory
+    public class CardCategory: ICloneable
     {
         public string Name { get; private set; }
 
@@ -29,6 +29,14 @@ namespace WRApp_PC.WRLibrary
         public override string ToString()
         {
             return Name;
+        }
+
+        public object Clone()
+        {
+            CardCategory category = new CardCategory((string)this.Name.Clone());
+            category.CreationDate = this.CreationDate;
+
+            return category;
         }
 
         public static bool operator ==(CardCategory card1, CardCategory card2)

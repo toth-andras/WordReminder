@@ -51,7 +51,9 @@
                 <StackPanel Orientation="Horizontal"
                             Margin="-45,17,-620,-74" Width="92" Height="57" VerticalAlignment="Top">
                     <!--Кнока редактировать-->
-                    <Button Height="45" Width="45"
+                    <Button x:Name="EditButton"
+                            Click="EditButton_Click"        
+                            Height="45" Width="45"
                             BorderThickness="0"
                             Background="Transparent">
                         <!--Подсказка к кнопке-->
