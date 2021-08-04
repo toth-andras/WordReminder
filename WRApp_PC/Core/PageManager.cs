@@ -7,10 +7,11 @@ using System.Windows.Controls;
 
 using WRApp_PC.WRLibrary;
 using WRApp_PC.UserControls;
+using WRApp_PC.UserControls.QuestionShowers;
 
 namespace WRApp_PC.Core
 {
-    public enum Pages { Main, CardsShower, AddCard, EditCard, ChooseQuizType}
+    public enum Pages { Main, CardsShower, AddCard, EditCard, ChooseQuizType, QuestionShower}
 
     /// <summary>
     /// Осуществляет контроль над страницами главной части приложения.
@@ -21,6 +22,7 @@ namespace WRApp_PC.Core
         static CardsShowerPage cardsShowerPage;
         static AddEditCardPage addEditCardPage;
         static ChooseQuizTypePage chooseQuizTypePage;
+        static TextInputQuestionShower questionShowerPage;
 
         static Grid grid;
 
@@ -36,6 +38,7 @@ namespace WRApp_PC.Core
             cardsShowerPage = new CardsShowerPage();
             addEditCardPage = new AddEditCardPage();
             chooseQuizTypePage = new ChooseQuizTypePage();
+            questionShowerPage = new TextInputQuestionShower(new AskForValueQuestion(new Card("Cat", "Кошка")));
         }
 
         public static void ChangePage(Pages page, object valueToPass = null)
@@ -74,6 +77,10 @@ namespace WRApp_PC.Core
                 case Pages.ChooseQuizType:
                     grid.Children.Clear();
                     grid.Children.Add(chooseQuizTypePage);
+                    break;
+
+                case Pages.QuestionShower:
+                    grid.Children.Add(questionShowerPage);
                     break;
 
                 default:

@@ -87,6 +87,10 @@
     <Compile Include="UserControls\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\QuestionShowers\IQuestionShower.cs" />
+    <Compile Include="UserControls\QuestionShowers\TextInputQuestionShower.xaml.cs">
+      <DependentUpon>TextInputQuestionShower.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WRLibrary\Cards\CardCategory.cs" />
     <Compile Include="WRLibrary\Cards\CardComparer.cs" />
     <Compile Include="WRLibrary\Cards\CardStorage.cs" />
@@ -148,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QuestionShowers\TextInputQuestionShower.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

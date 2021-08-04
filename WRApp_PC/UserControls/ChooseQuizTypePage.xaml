@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WRApp_PC.UserControls"
+             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1150">
     <Grid>
@@ -47,16 +48,23 @@
                                        Rect="0,0, 500, 300"/>
                         </Button.Clip>
 
-                        <StackPanel Margin="-80, -40, 0, 0">
+                        <StackPanel Margin="-50, -30, 0, 0">
+                            <materialDesign:PackIcon Kind="CheckAll" Foreground="Black"
+                                                     Width="150" Height="150"
+                                                     VerticalAlignment="Center"
+                                                     Margin="130, 40, 0, 0"/>
+
                             <TextBlock Text="Повторение"
                                    Foreground="Black" 
-                                   FontSize="70"
-                                   Margin="0, 00, 0, 0"/>
+                                   FontSize="60"
+                                   Margin="30, -40, 0, 0"/>
 
                             <TextBlock Text="Проверьте, что Вы помните,&#x0a;а что нужно повторить"
-                                   Foreground="Black" 
-                                   FontSize="25"
-                                   Margin="20, 50, 10, 0"/>
+                                       Foreground="Black" 
+                                       FontSize="23"
+                                       Margin="25, 10, 10, 0"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"/>
                         </StackPanel>
                     </Button>
                     
@@ -69,6 +77,25 @@
                                        RadiusY="20"
                                        Rect="0,0, 500, 300"/>
                         </Button.Clip>
+
+                        <StackPanel Margin="-10, -30, 0, 0">
+                            <materialDesign:PackIcon Kind="School" Foreground="Black"
+                                                     Width="150" Height="150"
+                                                     VerticalAlignment="Center"
+                                                     Margin="130, 40, 0, 0"/>
+
+                            <TextBlock Text="Заучивание"
+                                   Foreground="Black" 
+                                   FontSize="60"
+                                   Margin="40, -40, 0, 0"/>
+
+                            <TextBlock Text="Выучите то, что недавно добавили"
+                                       Foreground="Black" 
+                                       FontSize="23"
+                                       Margin="25, 10, 10, 0"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"/>
+                        </StackPanel>
                     </Button>
                 </StackPanel>
             </Grid>
