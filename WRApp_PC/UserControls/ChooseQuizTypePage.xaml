@@ -40,7 +40,9 @@
 
                 <StackPanel Orientation="Horizontal" Grid.Column="1">
                     <!--Кнопка Опрос-Повторение-->
-                    <Button Width="500" Height="300">
+                    <Button x:Name="RemidQuizButton"
+                            Click="RemidQuizButton_Click"
+                            Width="500" Height="300">
                         <!--Форма кнопки-->
                         <Button.Clip>
                             <RectangleGeometry RadiusX="20"

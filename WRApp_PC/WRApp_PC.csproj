@@ -68,6 +68,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Core\PageManager.cs" />
+    <Compile Include="Core\QuizManager.cs" />
     <Compile Include="Core\WRLibraryManager.cs" />
     <Compile Include="SpecialUIElements\CardUILayout.xaml.cs">
       <DependentUpon>CardUILayout.xaml</DependentUpon>

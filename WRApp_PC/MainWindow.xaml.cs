@@ -29,7 +29,7 @@ namespace WRApp_PC
             WRLibraryManager.Initialize();
 
             PageManager.Initialize(MainGrid);
-            PageManager.ChangePage(Pages.QuestionShower);
+            PageManager.ChangePage(Pages.Main);
         }
 
         private void MainPageMenuButton_Click(object sender, RoutedEventArgs e)

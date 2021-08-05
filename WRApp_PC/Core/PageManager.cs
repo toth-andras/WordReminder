@@ -46,10 +46,6 @@ namespace WRApp_PC.Core
             addEditCardPage = new AddEditCardPage();
             chooseQuizTypePage = new ChooseQuizTypePage();
 
-            questionShowerPage = new TextInputQuestionShower(new AskForValueQuestion(new Card("Cat", "Кошка")));
-            questionShowerPage.OnCorrectAnswer += OpenCorrectAnswerPage;
-            questionShowerPage.OnMistake += OpenMistakeAnswerPage;
-
             correctAnswerPage = new CorrectAnswerPage();
             mistakeAnswerPage = new MistakeAnswerPage();
         }
@@ -107,6 +103,19 @@ namespace WRApp_PC.Core
                     break;
 
                 case Pages.QuestionShower:
+                    if (valueToPass == null)
+                    {
+                        throw new NullReferenceException("Parameter 'valueToPass' was null.") { Source = "PageManager.ChangePage(Pages, object)" };
+                    }
+                    if (!(valueToPass is IQuestion))
+                    {
+                        throw new ArgumentException("Parameter 'valueToPass' was not IQuiz.") { Source = "PageManager.ChangePage(Pages, object)" };
+                    }
+
+                    questionShowerPage = new TextInputQuestionShower(valueToPass as IQuestion);
+                    questionShowerPage.OnCorrectAnswer += OpenCorrectAnswerPage;
+                    questionShowerPage.OnMistake += OpenMistakeAnswerPage;
+
                     grid.Children.Add(questionShowerPage);
                     break;
 

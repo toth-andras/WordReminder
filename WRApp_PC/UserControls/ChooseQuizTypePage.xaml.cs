@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using WRApp_PC.Core;
+
 namespace WRApp_PC.UserControls
 {
     /// <summary>
@@ -23,6 +25,12 @@ namespace WRApp_PC.UserControls
         public ChooseQuizTypePage()
         {
             InitializeComponent();
+        }
+
+        private void RemidQuizButton_Click(object sender, RoutedEventArgs e)
+        {
+            QuizManager.Initialize();
+            QuizManager.ShowNext();
         }
     }
 }
