@@ -63,7 +63,7 @@ namespace WRApp_PC.WRLibrary
 
         public override string ToString()
         {
-            return $"Укажите определение для термина {Card?.Term ?? throw new NullReferenceException("Card term was null.")}: ";
+            return $"Укажите определение для термина: {Card?.Term ?? throw new NullReferenceException("Card term was null.")}";
         }
     }
 }
