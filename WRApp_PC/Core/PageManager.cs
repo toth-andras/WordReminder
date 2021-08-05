@@ -11,7 +11,12 @@ using WRApp_PC.UserControls.QuestionShowers;
 
 namespace WRApp_PC.Core
 {
-    public enum Pages { Main, CardsShower, AddCard, EditCard, ChooseQuizType, QuestionShower}
+    public enum Pages
+    {
+        Main, CardsShower,
+        AddCard, EditCard, ChooseQuizType,
+        QuestionShower, CorrectAnswerPage, MistakeAnswerPage
+    }
 
     /// <summary>
     /// Осуществляет контроль над страницами главной части приложения.
@@ -23,6 +28,8 @@ namespace WRApp_PC.Core
         static AddEditCardPage addEditCardPage;
         static ChooseQuizTypePage chooseQuizTypePage;
         static TextInputQuestionShower questionShowerPage;
+        static CorrectAnswerPage correctAnswerPage;
+        static MistakeAnswerPage mistakeAnswerPage;
 
         static Grid grid;
 
@@ -38,7 +45,27 @@ namespace WRApp_PC.Core
             cardsShowerPage = new CardsShowerPage();
             addEditCardPage = new AddEditCardPage();
             chooseQuizTypePage = new ChooseQuizTypePage();
+
             questionShowerPage = new TextInputQuestionShower(new AskForValueQuestion(new Card("Cat", "Кошка")));
+            questionShowerPage.OnCorrectAnswer += OpenCorrectAnswerPage;
+            questionShowerPage.OnMistake += OpenMistakeAnswerPage;
+
+            correctAnswerPage = new CorrectAnswerPage();
+            mistakeAnswerPage = new MistakeAnswerPage();
+        }
+
+
+        private static void OpenCorrectAnswerPage()
+        {
+            ChangePage(Pages.CorrectAnswerPage);
+        }
+        private static void OpenMistakeAnswerPage()
+        {
+            ChangePage(Pages.MistakeAnswerPage);
+        }
+        private static void OpenMainPage(object sender, EventArgs e)
+        {
+            ChangePage(Pages.Main);
         }
 
         public static void ChangePage(Pages page, object valueToPass = null)
@@ -81,6 +108,14 @@ namespace WRApp_PC.Core
 
                 case Pages.QuestionShower:
                     grid.Children.Add(questionShowerPage);
+                    break;
+
+                case Pages.CorrectAnswerPage:
+                    grid.Children.Add(correctAnswerPage);
+                    break;
+
+                case Pages.MistakeAnswerPage:
+                    grid.Children.Add(mistakeAnswerPage);
                     break;
 
                 default:

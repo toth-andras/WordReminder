@@ -34,7 +34,7 @@
                              TextAlignment="Left"
                              HorizontalContentAlignment="Center"
                              FontSize="38"
-                             Margin="0, 50, 0, 0">
+                             Margin="0, 50, 0, 0" KeyDown="UserAnswerTextBox_KeyDown">
                     <!--Форма поля-->
                     <TextBox.Clip>
                         <RectangleGeometry RadiusX="20"
@@ -45,6 +45,7 @@
 
                 <!--Кнопка проверить-->
                 <Button x:Name="CheckButton"
+                        Click="CheckButton_Click"
                         Width="700" Height="75"
                         Background="Transparent"
                         Margin="0, 150, 0, 0"

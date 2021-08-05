@@ -100,7 +100,32 @@ namespace WRApp_PC.UserControls.QuestionShowers
 
         public UserAnswer CheckAnswer()
         {
-            throw new NotImplementedException();
+            return Question.CheckAnswer(UserAnswerTextBox.Text);
+        }
+
+        private void DoCheck()
+        {
+            if (CheckAnswer() == UserAnswer.CorrectAnswer)
+            {
+                OnCorrectAnswer?.Invoke();
+            }
+            else
+            {
+                OnMistake?.Invoke();
+            }
+        }
+
+        private void CheckButton_Click(object sender, RoutedEventArgs e)
+        {
+            DoCheck();
+        }
+
+        private void UserAnswerTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                DoCheck();
+            }
         }
     }
 }

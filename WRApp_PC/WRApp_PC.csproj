@@ -87,7 +87,13 @@
     <Compile Include="UserControls\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\QuestionShowers\CorrectAnswerPage.xaml.cs">
+      <DependentUpon>CorrectAnswerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\QuestionShowers\IQuestionShower.cs" />
+    <Compile Include="UserControls\QuestionShowers\MistakeAnswerPage.xaml.cs">
+      <DependentUpon>MistakeAnswerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\QuestionShowers\TextInputQuestionShower.xaml.cs">
       <DependentUpon>TextInputQuestionShower.xaml</DependentUpon>
     </Compile>
@@ -152,6 +158,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QuestionShowers\CorrectAnswerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QuestionShowers\MistakeAnswerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
