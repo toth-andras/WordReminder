@@ -16,6 +16,7 @@ namespace WRApp_PC.Core
     {
         static IQuiz quiz;
         static bool isLastQuestion;
+        static bool lastQuestionOver;
 
         static void LastQuestion(object sender, EventArgs e)
         {
@@ -25,6 +26,7 @@ namespace WRApp_PC.Core
         public static void Initialize()
         {
             isLastQuestion = false;
+            lastQuestionOver = false;
             quiz = new RemindQuiz(WRLibraryManager.CardStorage.GetCardsForQuiz(), new AskForValueQuizCreator());
             quiz.OnLastQuestion += LastQuestion;
         }
@@ -35,8 +37,17 @@ namespace WRApp_PC.Core
         /// </summary>
         public static void ShowNext()
         {
+            if (lastQuestionOver)
+            {
+                PageManager.ChangePage(Pages.Main);
+                return;
+            }
             IQuestion question = quiz.GetNextQuestion();
             PageManager.ChangePage(Pages.QuestionShower, question);
+            if (isLastQuestion)
+            {
+                lastQuestionOver = true;
+            }
         }
     }
 }

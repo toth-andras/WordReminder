@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using WRApp_PC.Core;
+
 namespace WRApp_PC.UserControls.QuestionShowers
 {
     /// <summary>
@@ -23,6 +25,11 @@ namespace WRApp_PC.UserControls.QuestionShowers
         public MistakeAnswerPage()
         {
             InitializeComponent();
+        }
+
+        private void ContinueButton_Click(object sender, RoutedEventArgs e)
+        {
+            QuizManager.ShowNext();
         }
     }
 }
