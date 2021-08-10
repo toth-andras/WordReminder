@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="WRApp_PC.UserControls.EndQuizPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WRApp_PC.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1150">
+    <Grid>
+        <StackPanel>
+            <Label x:Name="PageNameLabel"
+                   Content="Опрос окончен!"
+                   Grid.Row="0"
+                   Foreground="White"
+                   FontSize="40"
+                   Margin="30, 20, 0, 0"/>
+            <Button x:Name="ToMainPageButton"
+                    Margin="0, 20, 0, 0"
+                Width="700" Height="75"
+                Background="Transparent"
+                BorderThickness="0" 
+                Click="ToMainPageButton_Click">
+                <!--Форма кнопки-->
+                <Button.Clip>
+                    <RectangleGeometry RadiusX="20"
+                        RadiusY="20"
+                        Rect="0,0, 700, 75"/>
+                </Button.Clip>
+
+                <StackPanel>
+                    <TextBlock Text="На главную"
+                        Foreground="Gray" 
+                        FontSize="30"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

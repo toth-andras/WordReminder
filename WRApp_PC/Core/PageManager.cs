@@ -15,7 +15,7 @@ namespace WRApp_PC.Core
     {
         Main, CardsShower,
         AddCard, EditCard, ChooseQuizType,
-        QuestionShower, CorrectAnswerPage, MistakeAnswerPage
+        QuestionShower, CorrectAnswerPage, MistakeAnswerPage, EndQuizPage
     }
 
     /// <summary>
@@ -30,6 +30,7 @@ namespace WRApp_PC.Core
         static TextInputQuestionShower questionShowerPage;
         static CorrectAnswerPage correctAnswerPage;
         static MistakeAnswerPage mistakeAnswerPage;
+        static EndQuizPage endQuizPage;
 
         static Grid grid;
 
@@ -48,6 +49,7 @@ namespace WRApp_PC.Core
 
             correctAnswerPage = new CorrectAnswerPage();
             mistakeAnswerPage = new MistakeAnswerPage();
+            endQuizPage = new EndQuizPage();
         }
 
 
@@ -125,6 +127,10 @@ namespace WRApp_PC.Core
 
                 case Pages.MistakeAnswerPage:
                     grid.Children.Add(mistakeAnswerPage);
+                    break;
+
+                case Pages.EndQuizPage:
+                    grid.Children.Add(endQuizPage);
                     break;
 
                 default:

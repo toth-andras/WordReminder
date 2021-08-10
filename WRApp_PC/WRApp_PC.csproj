@@ -85,6 +85,9 @@
     <Compile Include="UserControls\ChooseQuizTypePage.xaml.cs">
       <DependentUpon>ChooseQuizTypePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\EndQuizPage.xaml.cs">
+      <DependentUpon>EndQuizPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ChooseQuizTypePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\EndQuizPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

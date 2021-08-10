@@ -35,11 +35,11 @@ namespace WRApp_PC.Core
         /// Выполнить отображение следующего вопроса. Если его нет, то закончить показ вопросов.
         /// Перед выполнением этого метода должен быть вызван метод Initialize().
         /// </summary>
-        public static void ShowNext()
+        public static void Continue()
         {
             if (lastQuestionOver)
             {
-                PageManager.ChangePage(Pages.Main);
+                PageManager.ChangePage(Pages.EndQuizPage);
                 return;
             }
             IQuestion question = quiz.GetNextQuestion();

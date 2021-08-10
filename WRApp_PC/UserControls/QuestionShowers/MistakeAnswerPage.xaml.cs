@@ -29,7 +29,7 @@ namespace WRApp_PC.UserControls.QuestionShowers
 
         private void ContinueButton_Click(object sender, RoutedEventArgs e)
         {
-            QuizManager.ShowNext();
+            QuizManager.Continue();
         }
     }
 }

@@ -18,19 +18,18 @@ using WRApp_PC.Core;
 namespace WRApp_PC.UserControls
 {
     /// <summary>
-    /// Interaction logic for ChooseQuizTypePage.xaml
+    /// Interaction logic for EndQuizPage.xaml
     /// </summary>
-    public partial class ChooseQuizTypePage : UserControl
+    public partial class EndQuizPage : UserControl
     {
-        public ChooseQuizTypePage()
+        public EndQuizPage()
         {
             InitializeComponent();
         }
 
-        private void RemidQuizButton_Click(object sender, RoutedEventArgs e)
+        private void ToMainPageButton_Click(object sender, RoutedEventArgs e)
         {
-            QuizManager.Initialize();
-            QuizManager.Continue();
+            PageManager.ChangePage(Pages.Main);
         }
     }
 }
