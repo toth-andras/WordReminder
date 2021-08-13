@@ -98,7 +98,7 @@
 
                     <!--Текст кнопки-->
                     <StackPanel Margin="-60, 0, 0, 0">
-                        <TextBlock Text="Добавить&#x0a;карточку"
+                        <TextBlock Text="Добавить&#x0a;карточки"
                                    Foreground="White" 
                                    FontSize="40"
                                    Margin="20, 10, 10, 0"/>

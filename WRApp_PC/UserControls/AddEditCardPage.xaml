@@ -8,11 +8,12 @@
              d:DesignHeight="800" d:DesignWidth="1150">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="51*"/>
-            <RowDefinition Height="400"/>
-            <RowDefinition Height="133*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="368"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="243*"/>
         </Grid.RowDefinitions>
-        <!--Label Добавить карточку-->
+        <!--Label Добавить карточки-->
         <Label x:Name="PageNameLabel"
                Grid.Row="0"
                Content="Добавить карточку"
@@ -76,23 +77,24 @@
                         </TextBox.Clip>
                     </TextBox>
                 </StackPanel>
-                
+
                 <!--Место для отображения ошибок-->
                 <StackPanel x:Name="ErrorPlace" Margin="0, 30, 0, 0" >
-                    
+
                 </StackPanel>
             </StackPanel>
         </Grid>
 
+        <!--Кнопки создать и отменить-->
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="780"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel Orientation="Horizontal"
-                        Grid.Column="1" Margin="170, -100, 0, 0">
+                        Grid.Column="1" Margin="170, -0, 0, 0">
                 <!--Кнопка создать-->
                 <Button 
                     x:Name="AddEditCardButton"
@@ -149,6 +151,41 @@
                     <!--Содержимое кнопки-->
                     <Grid>
                         <TextBlock Text="Отменить"
+                                   FontSize="25"
+                                   Foreground="White"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
+        
+        <!--Альтернативные способы создания карточек-->
+        <Grid Grid.Row="3">
+            <StackPanel Orientation="Horizontal">
+                <Button 
+                    x:Name="AddFromFileButton"
+                    BorderThickness="0"
+                    Height="180"
+                    Width="250"
+                    Click="AddEditCardButton_Click">
+                    <!--Форма кнопки-->
+                    <Button.Clip>
+                        <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0, 250, 180"/>
+                    </Button.Clip>
+
+                    <!--Цвет кнопки-->
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
+                            <GradientStop Color="#00C58A" Offset="0.0"/>
+                            <GradientStop Color="#A274DD" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+
+                    <!--Содержимое кнопки-->
+                    <Grid>
+                        <TextBlock x:Name="AddFromFileButtonText"
+                                   Text="Добавить из файла"
                                    FontSize="25"
                                    Foreground="White"/>
                     </Grid>

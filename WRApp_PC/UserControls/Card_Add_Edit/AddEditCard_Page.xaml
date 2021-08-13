@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="WRApp_PC.UserControls.AddEditCard_Page"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WRApp_PC.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1150">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="700*"/>
+        </Grid.RowDefinitions>
+
+        <!--Заголовок страницы-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="365"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1"
+                   x:Name="PageTitleLabel"
+                   Content="Добавить карточку"
+                   FontSize="40"
+                   Foreground="White"/>
+        </Grid>
+
+        <!--Основная часть страницы-->
+        <Grid x:Name="MainGrid"
+              Grid.Row="1">
+        </Grid>
+    </Grid>
+</UserControl>
