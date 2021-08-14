@@ -73,7 +73,7 @@ namespace WRApp_PC.Core
             switch (page)
             {
                 case Pages.Main:
-                    grid.Children.Add(mainPage);
+                    grid.Children.Add(new AddEditCard_Page());
                     break;
 
                 case Pages.CardsShower:

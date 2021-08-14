@@ -75,12 +75,20 @@ namespace WRApp_PC.UserControls
         private void AddCardType()
         {
             PageTitleLabel.Content = "Добавить карточку";
+            SetMainGrid(new AddCard_Type());
         }
 
         // Формирует интерфейс страницы для типа страницы "Редактировать карточку".
         private void EditCardType()
         {
             PageTitleLabel.Content = "Редактировать карточку";
+        }
+
+        // Добавляет страницу на главнуюю область.
+        private void SetMainGrid(UserControl page)
+        {
+            MainGrid.Children.Clear();
+            MainGrid.Children.Add(page);
         }
     }
 }
