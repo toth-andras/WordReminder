@@ -76,13 +76,17 @@
     <Compile Include="SpecialUIElements\ErrorLayout.xaml.cs">
       <DependentUpon>ErrorLayout.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Card_Show\CardEventArgs.cs" />
+    <Compile Include="UserControls\Card_Show\CardUILayout.xaml.cs">
+      <DependentUpon>CardUILayout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Card_Add_Edit\AddCard_Type.xaml.cs">
       <DependentUpon>AddCard_Type.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Card_Add_Edit\AddEditCard_Page.xaml.cs">
       <DependentUpon>AddEditCard_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CardsShowerPage.xaml.cs">
+    <Compile Include="UserControls\Card_Show\CardsShowerPage.xaml.cs">
       <DependentUpon>CardsShowerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ChooseQuizTypePage.xaml.cs">
@@ -155,6 +159,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Card_Show\CardUILayout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Card_Add_Edit\AddCard_Type.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,7 +171,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CardsShowerPage.xaml">
+    <Page Include="UserControls\Card_Show\CardsShowerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

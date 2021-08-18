@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 
 using WRApp_PC.Core;
 using WRApp_PC.WRLibrary;
-using WRApp_PC.SpecialUIElements;
 
 namespace WRApp_PC.UserControls
 {
@@ -51,6 +50,15 @@ namespace WRApp_PC.UserControls
                     // Подписка на событие для корректного обновления
                     // отображаемого списка.
                     layout.AfterDelete += RefreshContent;
+
+                    layout.EditButtonPressed += (sender, e) => PageManager.ChangePage(Pages.AddEditCard, e.Card);
+                    layout.RemoveButtonPressed += (sender, e) =>
+                    {
+                        if (MessageBox.Show("Удалить карточку?", "Подтвердите действие", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                        {
+                            WRLibraryManager.CardStorage.RemoveCard(e.Card);
+                        }
+                    };
 
                     CardsStack.Children.Add(layout);
                 }

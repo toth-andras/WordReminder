@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="WRApp_PC.UserControls.CardUILayout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WRApp_PC.UserControls"
+             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="700">
+    <Button  BorderThickness="0"
+             Height="150"
+             Width="700"
+             Padding="0, 0, 0, 0">
+        <!--Форма кнопки-->
+        <Button.Clip>
+            <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0, 700, 150"/>
+        </Button.Clip>
+
+        <!--Цвет кнопки-->
+        <Button.Background>
+            <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
+                <GradientStop Color="#00C58A" Offset="0.0"/>
+                <GradientStop Color="#A274DD" Offset="1"/>
+            </LinearGradientBrush>
+        </Button.Background>
+
+        <!--Содержимое кнопки-->
+        <Grid>
+            <StackPanel Orientation="Horizontal">
+                <!--Отображение термина и значения-->
+                <StackPanel Orientation="Vertical">
+                    <!--Текст термина-->
+                    <TextBlock     x:Name="TermTextBlock"
+                                   Text="Термин"
+                                   Foreground="White" 
+                                   FontSize="40"
+                                   Height="60"
+                                   Margin="-300 -70, 0, 0"/>
+                    <!--Текст значения-->
+                    <TextBlock     x:Name="ValueTextBlock"
+                                   Text="Значение"
+                                   Foreground="White" 
+                                   FontSize="25"
+                                   Height="60" Margin="-300 -90 0 -150"/>
+                </StackPanel>
+
+                <!--Кнопки редактировать и удалить-->
+                <StackPanel Orientation="Horizontal"
+                            Margin="-45,17,-620,-74" Width="92" Height="57" VerticalAlignment="Top">
+                    <!--Кнока редактировать-->
+                    <Button x:Name="EditButton"
+                            Click="EditButton_Click"        
+                            Height="45" Width="45"
+                            BorderThickness="0"
+                            Background="Transparent">
+                        <!--Подсказка к кнопке-->
+                        <Button.ToolTip>
+                            Редактировать
+                        </Button.ToolTip>
+
+                        <!--Форма кнопки-->
+                        <Button.Clip>
+                            <RectangleGeometry RadiusX="15"
+                                       RadiusY="15"
+                                       Rect="0,0, 45, 45"/>
+                        </Button.Clip>
+                        <materialDesign:PackIcon Kind="Edit" Foreground="White" Width="30" Height="30" VerticalAlignment="Center"/>
+                    </Button>
+
+                    <!--Кнопка удалить-->
+                    <Button x:Name="RemoveButton"
+                            Click="RemoveButton_Click"
+                            Height="45" Width="45"
+                            BorderThickness="0"
+                            Background="Transparent">
+                        <!--Подсказка к кнопке-->
+                        <Button.ToolTip>
+                            Удалить
+                        </Button.ToolTip>
+
+                        <!--Форма кнопки-->
+                        <Button.Clip>
+                            <RectangleGeometry RadiusX="15"
+                                       RadiusY="15"
+                                       Rect="0,0, 45, 45"/>
+                        </Button.Clip>
+                        <materialDesign:PackIcon Kind="Delete" Foreground="White" Width="30" Height="30" VerticalAlignment="Center"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Button>
+</UserControl>
