@@ -27,6 +27,8 @@ namespace WRApp_PC.UserControls
         public CardsShowerPage()
         {
             InitializeComponent();
+
+            RefreshContent();
         }
         /// <summary>
         /// Обновить список карточек для отображения.

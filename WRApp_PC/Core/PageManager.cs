@@ -24,7 +24,6 @@ namespace WRApp_PC.Core
     static class PageManager
     {
         static MainPage mainPage;
-        static CardsShowerPage cardsShowerPage;
         static ChooseQuizTypePage chooseQuizTypePage;
         static TextInputQuestionShower questionShowerPage;
         static CorrectAnswerPage correctAnswerPage;
@@ -42,7 +41,6 @@ namespace WRApp_PC.Core
             grid = gridToManage;
 
             mainPage = new MainPage();
-            cardsShowerPage = new CardsShowerPage();
             chooseQuizTypePage = new ChooseQuizTypePage();
 
             correctAnswerPage = new CorrectAnswerPage();
@@ -75,8 +73,7 @@ namespace WRApp_PC.Core
                     break;
 
                 case Pages.CardsShower:
-                    cardsShowerPage.RefreshContent();
-                    grid.Children.Add(cardsShowerPage);
+                    grid.Children.Add(new CardsShowerPage());
                     break;
 
                 case Pages.AddEditCard:
