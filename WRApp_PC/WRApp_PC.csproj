@@ -79,9 +79,6 @@
     <Compile Include="UserControls\Card_Add_Edit\AddCard_Type.xaml.cs">
       <DependentUpon>AddCard_Type.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AddEditCardPage.xaml.cs">
-      <DependentUpon>AddEditCardPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Card_Add_Edit\AddEditCard_Page.xaml.cs">
       <DependentUpon>AddEditCard_Page.xaml</DependentUpon>
     </Compile>
@@ -159,10 +156,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Card_Add_Edit\AddCard_Type.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\AddEditCardPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

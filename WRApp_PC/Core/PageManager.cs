@@ -25,7 +25,6 @@ namespace WRApp_PC.Core
     {
         static MainPage mainPage;
         static CardsShowerPage cardsShowerPage;
-        static AddEditCardPage addEditCardPage;
         static ChooseQuizTypePage chooseQuizTypePage;
         static TextInputQuestionShower questionShowerPage;
         static CorrectAnswerPage correctAnswerPage;
@@ -44,7 +43,6 @@ namespace WRApp_PC.Core
 
             mainPage = new MainPage();
             cardsShowerPage = new CardsShowerPage();
-            addEditCardPage = new AddEditCardPage();
             chooseQuizTypePage = new ChooseQuizTypePage();
 
             correctAnswerPage = new CorrectAnswerPage();
