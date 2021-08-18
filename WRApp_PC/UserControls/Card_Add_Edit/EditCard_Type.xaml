@@ -1,19 +1,12 @@
-﻿<UserControl x:Class="WRApp_PC.UserControls.AddCard_Type"
+﻿<UserControl x:Class="WRApp_PC.UserControls.EditCard_Type"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WRApp_PC.UserControls"
-             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1150">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="24*"/>
-            <RowDefinition Height="11*"/>
-        </Grid.RowDefinitions>
-        
-        <!--Область добавления карточки путем ввода-->
         <StackPanel Grid.Row="0">
             <!--Карточка с полями для ввода данных-->
             <Border Height="300" Width="900">
@@ -76,24 +69,23 @@
 
                     <!--Поле для отображения ошибок-->
                     <Grid x:Name="ErrorGrid"
-                          Margin="0, 5, 0, 0">
+                          Margin="0, 20, 0, 0">
 
                     </Grid>
                 </StackPanel>
             </Border>
 
-            <!--Кнопки создать и отменить-->
+            <!--Кнопки изменить и отменить-->
             <StackPanel Orientation="Horizontal"
                         Grid.Column="1" 
                         Margin="0, 60, 0, 0"
                         HorizontalAlignment="Center">
-                <!--Кнопка создать-->
-                <Button 
-                    x:Name="AddCardButton"
-                    BorderThickness="0"
-                    Height="50"
-                    Width="445"
-                    Background="#00C58A" Click="AddCardButton_Click">
+                <!--Кнопка изменить-->
+                <Button x:Name="EditButton"
+                        BorderThickness="0"
+                        Height="50"
+                        Width="445"
+                        Background="#00C58A" Click="EditButton_Click">
                     <!--Форма кнопки-->
                     <Button.Clip>
                         <RectangleGeometry RadiusX="10"
@@ -103,8 +95,7 @@
 
                     <!--Содержимое кнопки-->
                     <Grid>
-                        <TextBlock x:Name="AddEditButtonText"
-                                   Text="Создать"
+                        <TextBlock Text="Изменить"
                                    FontSize="25"
                                    Foreground="White"/>
                     </Grid>
@@ -132,70 +123,6 @@
                     </Grid>
                 </Button>
             </StackPanel>
-        </StackPanel>
-        
-        <!--Область дополнительных методов добаления карточки-->
-        <StackPanel Grid.Row="1" 
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center">
-
-            <StackPanel.Resources>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Margin" Value="20,0,0,0"/>
-                </Style>
-            </StackPanel.Resources>
-
-
-            <!--Кнопка добавить из файла-->
-            <Button x:Name="AddFromFileButton"
-                    Height="150" Width="280"
-                    Background="#EAA85C">
-                <!--Форма кнопки-->
-                <Button.Clip>
-                    <RectangleGeometry RadiusX="20"
-                                       RadiusY="20"
-                                       Rect="0,0, 280, 150"/>
-                </Button.Clip>
-
-                <!--Содержимое кнопки-->
-                <StackPanel Width="265">
-                    <materialDesign:PackIcon Kind="AddBold" 
-                                             Foreground="White"
-                                             Width="70" Height="70"
-                                             VerticalAlignment="Center"
-                                             Margin="-10, 0, 0, 0"/>
-
-                    <Label Content="Добавить&#x0a;     из файла"
-                           Foreground="White"
-                           FontSize="33"
-                           Margin="45, -25, 0, 0"/>
-                </StackPanel>
-            </Button>
-
-            <!--Кнопка добавить из Quizlet-->
-            <Button x:Name="AddFromQuizlet"
-                    Height="150" Width="280"
-                    Background="#EAA85C">
-                <!--Форма кнопки-->
-                <Button.Clip>
-                    <RectangleGeometry RadiusX="20"
-                                       RadiusY="20"
-                                       Rect="0,0, 280, 150"/>
-                </Button.Clip>
-
-                <!--Содержимое кнопки-->
-                <StackPanel Width="265">
-                    <materialDesign:PackIcon Kind="AddBold" 
-                                             Foreground="White"
-                                             Width="70" Height="70"
-                                             VerticalAlignment="Center"/>
-
-                    <Label Content="Добавить&#x0a;     из Quizlet"
-                           Foreground="White"
-                           FontSize="33"
-                           Margin="45, -25, 0, 0"/>
-                </StackPanel>
-            </Button>
         </StackPanel>
     </Grid>
 </UserControl>

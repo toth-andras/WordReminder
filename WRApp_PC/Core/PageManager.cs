@@ -14,7 +14,7 @@ namespace WRApp_PC.Core
     public enum Pages
     {
         Main, CardsShower,
-        AddCard, EditCard, ChooseQuizType,
+        AddEditCard, ChooseQuizType,
         QuestionShower, CorrectAnswerPage, MistakeAnswerPage, EndQuizPage
     }
 
@@ -61,7 +61,7 @@ namespace WRApp_PC.Core
         {
             ChangePage(Pages.MistakeAnswerPage);
         }
-        private static void OpenMainPage(object sender, EventArgs e)
+        private static void OpenMainPage()
         {
             ChangePage(Pages.Main);
         }
@@ -73,7 +73,7 @@ namespace WRApp_PC.Core
             switch (page)
             {
                 case Pages.Main:
-                    grid.Children.Add(new AddEditCard_Page());
+                    grid.Children.Add(mainPage);
                     break;
 
                 case Pages.CardsShower:
@@ -81,22 +81,29 @@ namespace WRApp_PC.Core
                     grid.Children.Add(cardsShowerPage);
                     break;
 
-                case Pages.AddCard:
-                    addEditCardPage = new AddEditCardPage();
-                    grid.Children.Add(addEditCardPage);
-                    break;
+                case Pages.AddEditCard:
+                    AddEditCard_Page newPage;
 
-                case Pages.EditCard:
-                    if (valueToPass == null)
+                    // Если передано значение, значит, это значение -
+                    // карточка для редактирования.
+                    if (valueToPass != null)
                     {
-                        throw new NullReferenceException("Parameter 'valueToPass' was null.") { Source="PageManager.ChangePage(Pages, object)"};
+                        Card card = valueToPass as Card;
+                        if (card == null)
+                        {
+                            throw new ArgumentException("Parameter 'valueToPass' was not Card.") { Source = "PageManager.ChangePage(Pages, object)" };
+                        }
+                        newPage = new AddEditCard_Page(card);
                     }
-                    if (!(valueToPass is Card))
+                    else
                     {
-                        throw new ArgumentException("Parameter 'valueToPass' was not Card.") { Source = "PageManager.ChangePage(Pages, object)" };
+                        newPage = new AddEditCard_Page();
                     }
-                    addEditCardPage = new AddEditCardPage((Card)valueToPass);
-                    grid.Children.Add(addEditCardPage);
+
+                    newPage.OnFinished += OpenMainPage;
+                    newPage.OnCancelButtonPressed += OpenMainPage;
+
+                    grid.Children.Add(newPage);
                     break;
 
                 case Pages.ChooseQuizType:

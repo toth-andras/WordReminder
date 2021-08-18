@@ -29,7 +29,7 @@ namespace WRApp_PC.UserControls
 
         private void AddCardButton_Click(object sender, RoutedEventArgs e)
         {
-            PageManager.ChangePage(Pages.AddCard);
+            PageManager.ChangePage(Pages.AddEditCard);
         }
 
         private void DoQuizButton_Click(object sender, RoutedEventArgs e)

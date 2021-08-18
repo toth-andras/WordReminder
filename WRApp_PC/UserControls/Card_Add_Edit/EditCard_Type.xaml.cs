@@ -13,17 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using WRApp_PC.Core;
 using WRApp_PC.WRLibrary;
 using WRApp_PC.SpecialUIElements;
 
 namespace WRApp_PC.UserControls
 {
     /// <summary>
-    /// Interaction logic for AddCard_Type.xaml
+    /// Interaction logic for EditCard_Type.xaml
     /// </summary>
-    public partial class AddCard_Type : UserControl
+    public partial class EditCard_Type : UserControl
     {
+        // Карточка для редактирования.
+        private Card card;
+
         /// <summary>
         /// Вызывается по завершении всех действий на странице.
         /// </summary>
@@ -34,9 +36,14 @@ namespace WRApp_PC.UserControls
         /// </summary>
         public event Action CancelButtonPressed;
 
-        public AddCard_Type()
+        public EditCard_Type(Card card)
         {
             InitializeComponent();
+
+            this.card = card;
+
+            TermTextBox.Text = card.Term;
+            ValueTextBox.Text = card.Value;
         }
 
         // Сообщить пользователю об ошибке.
@@ -46,22 +53,16 @@ namespace WRApp_PC.UserControls
             ErrorGrid.Children.Add(new ErrorLayout(errorMessage));
         }
 
-        private void AddCardButton_Click(object sender, RoutedEventArgs e)
+        private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Card card = new Card(TermTextBox.Text, ValueTextBox.Text);
-
-                WRLibraryManager.CardStorage.AddCard(card);
+                card.Edit(TermTextBox.Text, ValueTextBox.Text);
                 WorkDone?.Invoke();
             }
             catch (NullOrEmptyStringException)
             {
                 ViewError("Неверный формат");
-            }
-            catch (CardAlreadyExistsException)
-            {
-                ViewError("Такая карточка уже существует");
             }
         }
 

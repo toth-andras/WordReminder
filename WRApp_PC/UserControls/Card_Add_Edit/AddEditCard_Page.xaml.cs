@@ -20,9 +20,9 @@ namespace WRApp_PC.UserControls
     /// <summary>
     /// Interaction logic for AddEditCard_Page.xaml
     /// </summary>
-    
+
     // Тип страницы.
-    enum PageType { AddCard, EditCard }
+    internal enum PageType { AddCard, EditCard }
 
     public partial class AddEditCard_Page : UserControl
     {
@@ -32,7 +32,12 @@ namespace WRApp_PC.UserControls
         /// <summary>
         /// Вызывается, когда странница произвела все необходимые действия и может быть закрыта.
         /// </summary>
-        public Action OnFinished;
+        public event Action OnFinished;
+
+        /// <summary>
+        /// Вызывается при нажатии кнопки отменить.
+        /// </summary>
+        public event Action OnCancelButtonPressed;
 
         public AddEditCard_Page()
         {
@@ -75,16 +80,27 @@ namespace WRApp_PC.UserControls
         private void AddCardType()
         {
             PageTitleLabel.Content = "Добавить карточку";
-            SetMainGrid(new AddCard_Type());
+
+            AddCard_Type page = new AddCard_Type();
+            page.WorkDone += () => OnFinished?.Invoke();
+            page.CancelButtonPressed += () => OnCancelButtonPressed?.Invoke();
+
+            SetMainGrid(page);
         }
 
         // Формирует интерфейс страницы для типа страницы "Редактировать карточку".
         private void EditCardType()
         {
             PageTitleLabel.Content = "Редактировать карточку";
+
+            EditCard_Type page = new EditCard_Type(card);
+            page.WorkDone += () => OnFinished?.Invoke();
+            page.CancelButtonPressed += () => OnCancelButtonPressed?.Invoke();
+
+            SetMainGrid(page);
         }
 
-        // Добавляет страницу на главнуюю область.
+        // Добавляет в интерфейс страницу.
         private void SetMainGrid(UserControl page)
         {
             MainGrid.Children.Clear();
