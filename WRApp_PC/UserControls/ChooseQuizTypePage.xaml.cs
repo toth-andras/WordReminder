@@ -30,7 +30,7 @@ namespace WRApp_PC.UserControls
         private void RemidQuizButton_Click(object sender, RoutedEventArgs e)
         {
             QuizManager.Initialize();
-            QuizManager.Continue();
+            PageManager.ChangePage(Pages.QuizPage);
         }
     }
 }

@@ -13,15 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using WRApp_PC.Core;
-
-namespace WRApp_PC.UserControls.QuestionShowers
+namespace WRApp_PC.UserControls
 {
     /// <summary>
     /// Interaction logic for MistakeAnswerPage.xaml
     /// </summary>
     public partial class MistakeAnswerPage : UserControl
     {
+        /// <summary>
+        /// Вызывается при нажатии пользователем кнопки продолжить.
+        /// </summary>
+        public event Action ContinueButtonPressed;
+
         public MistakeAnswerPage()
         {
             InitializeComponent();
@@ -29,7 +32,7 @@ namespace WRApp_PC.UserControls.QuestionShowers
 
         private void ContinueButton_Click(object sender, RoutedEventArgs e)
         {
-            QuizManager.Continue();
+            ContinueButtonPressed?.Invoke();
         }
     }
 }

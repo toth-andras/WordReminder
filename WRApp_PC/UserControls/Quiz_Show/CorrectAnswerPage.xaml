@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="WRApp_PC.UserControls.CorrectAnswerPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WRApp_PC.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1150">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Правильно!" Foreground="White"/>
+            <Button x:Name="ContinueButton" 
+                    Height="50"
+                    Content="Продолжить" Click="ContinueButton_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

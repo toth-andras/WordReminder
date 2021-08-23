@@ -12,9 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using WRApp_PC.WRLibrary;
 
-namespace WRApp_PC.UserControls.QuestionShowers
+namespace WRApp_PC.UserControls
 {
     /// <summary>
     /// Interaction logic for TextInputQuestionShower.xaml
@@ -34,13 +35,13 @@ namespace WRApp_PC.UserControls.QuestionShowers
             InitializeComponent();
         }
 
-        public TextInputQuestionShower(IQuestion question) 
+        public TextInputQuestionShower(IQuestion question)
         {
             InitializeComponent();
 
             if (question is null)
             {
-                throw new NullReferenceException("Parameter 'question' was null.") { Source= "TextInputQuestionShower.TextInputQuestionShower(IQuestion)" };
+                throw new NullReferenceException("Parameter 'question' was null.") { Source = "TextInputQuestionShower.TextInputQuestionShower(IQuestion)" };
             }
             if (!(question is AskForValueQuestion))
             {
@@ -68,9 +69,9 @@ namespace WRApp_PC.UserControls.QuestionShowers
             List<string> resultStrings = new List<string>();
 
             currentString += words[0];
-            for (int i = 1; i < words.Length-1; i++)
+            for (int i = 1; i < words.Length - 1; i++)
             {
-                if ( (currentString + words[i]).Length <= charsPerString)
+                if ((currentString + words[i]).Length <= charsPerString)
                 {
                     currentString += " " + words[i];
                 }
@@ -86,7 +87,7 @@ namespace WRApp_PC.UserControls.QuestionShowers
                 }
             }
 
-            if ( (words.Last() + resultStrings.Last()).Length <= charsPerString)
+            if ((words.Last() + resultStrings.Last()).Length <= charsPerString)
             {
                 resultStrings[resultStrings.Count - 1] += " " + words.Last();
             }

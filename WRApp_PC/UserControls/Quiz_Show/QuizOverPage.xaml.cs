@@ -13,23 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using WRApp_PC.Core;
-
-namespace WRApp_PC.UserControls.QuestionShowers
+namespace WRApp_PC.UserControls
 {
     /// <summary>
-    /// Interaction logic for CorrectAnswerPage.xaml
+    /// Interaction logic for QuizOverPage.xaml
     /// </summary>
-    public partial class CorrectAnswerPage : UserControl
+    public partial class QuizOverPage : UserControl
     {
-        public CorrectAnswerPage()
+        /// <summary>
+        /// Вызывается при нажатии пользователем кнопки "На главную".
+        /// </summary>
+        public event Action OnToMainPageButtonPressed;
+
+        public QuizOverPage()
         {
             InitializeComponent();
         }
 
-        private void ContinueButton_Click(object sender, RoutedEventArgs e)
+        private void ToMainPageButton_Click(object sender, RoutedEventArgs e)
         {
-            QuizManager.Continue();
+            OnToMainPageButtonPressed?.Invoke();
         }
     }
 }

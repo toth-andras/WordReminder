@@ -13,23 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using WRApp_PC.Core;
-
 namespace WRApp_PC.UserControls
 {
     /// <summary>
-    /// Interaction logic for EndQuizPage.xaml
+    /// Interaction logic for CorrectAnswerPage.xaml
     /// </summary>
-    public partial class EndQuizPage : UserControl
+    public partial class CorrectAnswerPage : UserControl
     {
-        public EndQuizPage()
+        /// <summary>
+        /// Вызывается при нажатии пользователем кнопки продолжить.
+        /// </summary>
+        public event Action ContinueButtonPressed;
+
+        public CorrectAnswerPage()
         {
             InitializeComponent();
         }
 
-        private void ToMainPageButton_Click(object sender, RoutedEventArgs e)
+        private void ContinueButton_Click(object sender, RoutedEventArgs e)
         {
-            PageManager.ChangePage(Pages.Main);
+            ContinueButtonPressed?.Invoke();
         }
     }
 }

@@ -95,20 +95,23 @@
     <Compile Include="UserControls\Card_Add_Edit\EditCard_Type.xaml.cs">
       <DependentUpon>EditCard_Type.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\EndQuizPage.xaml.cs">
-      <DependentUpon>EndQuizPage.xaml</DependentUpon>
+    <Compile Include="UserControls\Quiz_Show\QuizOverPage.xaml.cs">
+      <DependentUpon>QuizOverPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Quiz_Show\MistakeAnswerPage.xaml.cs">
+      <DependentUpon>MistakeAnswerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Quiz_Show\CorrectAnswerPage.xaml.cs">
+      <DependentUpon>CorrectAnswerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\QuestionShowers\CorrectAnswerPage.xaml.cs">
-      <DependentUpon>CorrectAnswerPage.xaml</DependentUpon>
+    <Compile Include="UserControls\Quiz_Show\QuestionShowers\IQuestionShower.cs" />
+    <Compile Include="UserControls\Quiz_Show\QuizPage.xaml.cs">
+      <DependentUpon>QuizPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\QuestionShowers\IQuestionShower.cs" />
-    <Compile Include="UserControls\QuestionShowers\MistakeAnswerPage.xaml.cs">
-      <DependentUpon>MistakeAnswerPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\QuestionShowers\TextInputQuestionShower.xaml.cs">
+    <Compile Include="UserControls\Quiz_Show\QuestionShowers\TextInputQuestionShower.xaml.cs">
       <DependentUpon>TextInputQuestionShower.xaml</DependentUpon>
     </Compile>
     <Compile Include="WRLibrary\Cards\CardCategory.cs" />
@@ -183,7 +186,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\EndQuizPage.xaml">
+    <Page Include="UserControls\Quiz_Show\QuizOverPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Quiz_Show\MistakeAnswerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Quiz_Show\CorrectAnswerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,15 +202,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\QuestionShowers\CorrectAnswerPage.xaml">
+    <Page Include="UserControls\Quiz_Show\QuizPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\QuestionShowers\MistakeAnswerPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\QuestionShowers\TextInputQuestionShower.xaml">
+    <Page Include="UserControls\Quiz_Show\QuestionShowers\TextInputQuestionShower.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

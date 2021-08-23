@@ -14,9 +14,9 @@ namespace WRApp_PC.Core
     /// </summary>
     static class QuizManager
     {
-        static IQuiz quiz;
         static bool isLastQuestion;
         static bool lastQuestionOver;
+        public static IQuiz Quiz { get; private set; }
 
         static void LastQuestion(object sender, EventArgs e)
         {
@@ -27,27 +27,27 @@ namespace WRApp_PC.Core
         {
             isLastQuestion = false;
             lastQuestionOver = false;
-            quiz = new RemindQuiz(WRLibraryManager.CardStorage.GetCardsForQuiz(), new AskForValueQuizCreator());
-            quiz.OnLastQuestion += LastQuestion;
+            Quiz = new RemindQuiz(WRLibraryManager.CardStorage.GetCardsForQuiz(), new AskForValueQuizCreator());
+            Quiz.OnLastQuestion += LastQuestion;
         }
 
         /// <summary>
         /// Выполнить отображение следующего вопроса. Если его нет, то закончить показ вопросов.
         /// Перед выполнением этого метода должен быть вызван метод Initialize().
         /// </summary>
-        public static void Continue()
-        {
-            if (lastQuestionOver)
-            {
-                PageManager.ChangePage(Pages.EndQuizPage);
-                return;
-            }
-            IQuestion question = quiz.GetNextQuestion();
-            PageManager.ChangePage(Pages.QuestionShower, question);
-            if (isLastQuestion)
-            {
-                lastQuestionOver = true;
-            }
-        }
+        //public static void Continue()
+        //{
+        //    if (lastQuestionOver)
+        //    {
+        //        PageManager.ChangePage(Pages.EndQuizPage);
+        //        return;
+        //    }
+        //    IQuestion question = quiz.GetNextQuestion();
+        //    PageManager.ChangePage(Pages.QuestionShower, question);
+        //    if (isLastQuestion)
+        //    {
+        //        lastQuestionOver = true;
+        //    }
+        //}
     }
 }

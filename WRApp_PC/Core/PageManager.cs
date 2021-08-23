@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 using WRApp_PC.WRLibrary;
 using WRApp_PC.UserControls;
-using WRApp_PC.UserControls.QuestionShowers;
+using WRApp_PC.UserControls;
 
 namespace WRApp_PC.Core
 {
@@ -15,7 +15,7 @@ namespace WRApp_PC.Core
     {
         Main, CardsShower,
         AddEditCard, ChooseQuizType,
-        QuestionShower, CorrectAnswerPage, MistakeAnswerPage, EndQuizPage
+        QuizPage
     }
 
     /// <summary>
@@ -25,10 +25,6 @@ namespace WRApp_PC.Core
     {
         static MainPage mainPage;
         static ChooseQuizTypePage chooseQuizTypePage;
-        static TextInputQuestionShower questionShowerPage;
-        static CorrectAnswerPage correctAnswerPage;
-        static MistakeAnswerPage mistakeAnswerPage;
-        static EndQuizPage endQuizPage;
 
         static Grid grid;
 
@@ -42,21 +38,8 @@ namespace WRApp_PC.Core
 
             mainPage = new MainPage();
             chooseQuizTypePage = new ChooseQuizTypePage();
-
-            correctAnswerPage = new CorrectAnswerPage();
-            mistakeAnswerPage = new MistakeAnswerPage();
-            endQuizPage = new EndQuizPage();
         }
 
-
-        private static void OpenCorrectAnswerPage()
-        {
-            ChangePage(Pages.CorrectAnswerPage);
-        }
-        private static void OpenMistakeAnswerPage()
-        {
-            ChangePage(Pages.MistakeAnswerPage);
-        }
         private static void OpenMainPage()
         {
             ChangePage(Pages.Main);
@@ -106,33 +89,11 @@ namespace WRApp_PC.Core
                     grid.Children.Add(chooseQuizTypePage);
                     break;
 
-                case Pages.QuestionShower:
-                    if (valueToPass == null)
-                    {
-                        throw new NullReferenceException("Parameter 'valueToPass' was null.") { Source = "PageManager.ChangePage(Pages, object)" };
-                    }
-                    if (!(valueToPass is IQuestion))
-                    {
-                        throw new ArgumentException("Parameter 'valueToPass' was not IQuiz.") { Source = "PageManager.ChangePage(Pages, object)" };
-                    }
+                case Pages.QuizPage:
+                    QuizPage quizPage = new QuizPage();
+                    quizPage.OnFinished += OpenMainPage;
 
-                    questionShowerPage = new TextInputQuestionShower(valueToPass as IQuestion);
-                    questionShowerPage.OnCorrectAnswer += OpenCorrectAnswerPage;
-                    questionShowerPage.OnMistake += OpenMistakeAnswerPage;
-
-                    grid.Children.Add(questionShowerPage);
-                    break;
-
-                case Pages.CorrectAnswerPage:
-                    grid.Children.Add(correctAnswerPage);
-                    break;
-
-                case Pages.MistakeAnswerPage:
-                    grid.Children.Add(mistakeAnswerPage);
-                    break;
-
-                case Pages.EndQuizPage:
-                    grid.Children.Add(endQuizPage);
+                    grid.Children.Add(quizPage);
                     break;
 
                 default:
