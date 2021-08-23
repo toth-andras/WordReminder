@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 using WRApp_PC.WRLibrary;
-using WRApp_PC.UserControls;
 using WRApp_PC.UserControls;
 
 namespace WRApp_PC.Core
