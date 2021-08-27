@@ -149,7 +149,7 @@
             <!--Кнопка добавить из файла-->
             <Button x:Name="AddFromFileButton"
                     Height="150" Width="280"
-                    Background="#EAA85C">
+                    Background="#EAA85C" Click="AddFromFileButton_Click">
                 <!--Форма кнопки-->
                 <Button.Clip>
                     <RectangleGeometry RadiusX="20"

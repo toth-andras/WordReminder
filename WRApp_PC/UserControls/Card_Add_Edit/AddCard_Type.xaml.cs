@@ -34,6 +34,11 @@ namespace WRApp_PC.UserControls
         /// </summary>
         public event Action CancelButtonPressed;
 
+        /// <summary>
+        /// Вызывается при нажатии кнопки добавить из файла.
+        /// </summary>
+        public event Action AddFromFileButtonPressed;
+
         public AddCard_Type()
         {
             InitializeComponent();
@@ -68,6 +73,11 @@ namespace WRApp_PC.UserControls
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             CancelButtonPressed?.Invoke();
+        }
+
+        private void AddFromFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddFromFileButtonPressed?.Invoke();
         }
     }
 }

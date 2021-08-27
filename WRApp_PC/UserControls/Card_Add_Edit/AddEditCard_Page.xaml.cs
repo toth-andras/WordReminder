@@ -76,7 +76,7 @@ namespace WRApp_PC.UserControls
             }
         }
 
-        // Формирует интерфейс страницы для типа страницы "Добавить карточку".
+        // Формирует интерфейс страницы для типа страницы "Добавить карточку вручную".
         private void AddCardType()
         {
             PageTitleLabel.Content = "Добавить карточку";
@@ -84,6 +84,7 @@ namespace WRApp_PC.UserControls
             AddCard_Type page = new AddCard_Type();
             page.WorkDone += () => OnFinished?.Invoke();
             page.CancelButtonPressed += () => OnCancelButtonPressed?.Invoke();
+            page.AddFromFileButtonPressed += () => AddFromFile();
 
             SetMainGrid(page);
         }
@@ -96,6 +97,14 @@ namespace WRApp_PC.UserControls
             EditCard_Type page = new EditCard_Type(card);
             page.WorkDone += () => OnFinished?.Invoke();
             page.CancelButtonPressed += () => OnCancelButtonPressed?.Invoke();
+
+            SetMainGrid(page);
+        }
+
+        // Формирует интерфейс страницы для добавления карточек из файла.
+        public void AddFromFile()
+        {
+            AddFromFilePage page = new AddFromFilePage();
 
             SetMainGrid(page);
         }
