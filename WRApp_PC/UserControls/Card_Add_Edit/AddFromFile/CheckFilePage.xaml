@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="WRApp_PC.UserControls.CheckFilePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WRApp_PC.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1150">
+    <Grid>
+        <!--Панель проверки файла.-->
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock Text="Проверка файла"
+                       FontSize="40"
+                       Foreground="White"/>
+            
+            <!--Стек для отображения ошибок.-->
+            <StackPanel x:Name="ErrorStack"
+                        Margin="0, 50, 0, 0">
+                
+            </StackPanel>
+            
+            <!--Кнопка поробовать снова.-->
+            <Button x:Name="ChooseAnotherFileButton" 
+                    Content="Выбрать другой файл"
+                    FontSize="25"
+                    Margin="0, 100, 0, 0" Click="ChooseAnotherFileButton_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

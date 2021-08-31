@@ -22,7 +22,10 @@ namespace WRApp_PC.UserControls
     /// </summary>
     public partial class ChooseFileTypePage : UserControl
     {
-        public Action<string> FileChosen;
+        /// <summary>
+        /// Вызывается после выбора пользователем файла.
+        /// </summary>
+        public event Action<string> FileChosen;
 
         public ChooseFileTypePage()
         {

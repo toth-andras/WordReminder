@@ -68,6 +68,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Add_Cards_From_File\Checkers\Criterias\Exceptions\NotEnoughColumnsInFileException.cs" />
+    <Compile Include="Add_Cards_From_File\Checkers\Criterias\Exceptions\TooManyColumnsInFileException.cs" />
+    <Compile Include="Add_Cards_From_File\Checkers\Criterias\FileHasTwoColumnsCriteria.cs" />
+    <Compile Include="Add_Cards_From_File\Checkers\CSVFileChecker.cs" />
+    <Compile Include="Add_Cards_From_File\Checkers\IFileChecker.cs" />
+    <Compile Include="Add_Cards_From_File\Checkers\Criterias\ICriteria.cs" />
+    <Compile Include="Add_Cards_From_File\Checkers\SpecialErrorDelegate.cs" />
+    <Compile Include="Add_Cards_From_File\Checkers\SpecialErrors.cs" />
     <Compile Include="Add_Cards_From_File\FileFilters\CSVFileFilter.cs" />
     <Compile Include="Add_Cards_From_File\FileFilters\IFileFilter.cs" />
     <Compile Include="Core\PageManager.cs" />
@@ -97,6 +105,9 @@
     </Compile>
     <Compile Include="UserControls\Card_Add_Edit\AddFromFile\ChooseFilePage.xaml.cs">
       <DependentUpon>ChooseFilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Card_Add_Edit\AddFromFile\CheckFilePage.xaml.cs">
+      <DependentUpon>CheckFilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ChooseQuizTypePage.xaml.cs">
       <DependentUpon>ChooseQuizTypePage.xaml</DependentUpon>
@@ -195,6 +206,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Card_Add_Edit\AddFromFile\CheckFilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\ChooseQuizTypePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -255,9 +270,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Add_Cards_From_File\Checkers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

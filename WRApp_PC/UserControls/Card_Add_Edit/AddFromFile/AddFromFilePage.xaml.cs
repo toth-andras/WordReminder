@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using WRApp_PC.UserControls;
+using WRApp_PC.Add_Cards_From_File;
+
 namespace WRApp_PC.UserControls
 {
     /// <summary>
@@ -20,11 +23,37 @@ namespace WRApp_PC.UserControls
     /// </summary>
     public partial class AddFromFilePage : UserControl
     {
+        public Action OnFinished;
+
+
         public AddFromFilePage()
         {
             InitializeComponent();
 
-            MainGrid.Children.Add(new ChooseFileTypePage());
+            ChooseFileTypePage page = new ChooseFileTypePage();
+            page.FileChosen += (path) => CheckFilePage(path);
+
+            SetMainGrid(page);
+        }
+
+        // Открыть страницу для проверки файла.
+        private void CheckFilePage(string filePath)
+        {
+            CheckFilePage page = new CheckFilePage(filePath, new CSVFileChecker());
+            page.OnFileIsOk += (filePath) => Lol(filePath);
+
+            SetMainGrid(page);
+        }
+        
+        private void ChooseIndexesPage(string filePath)
+        {
+
+        }
+
+        private void SetMainGrid(UIElement page)
+        {
+            MainGrid.Children.Clear();
+            MainGrid.Children.Add(page);
         }
     }
 }
