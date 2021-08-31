@@ -36,18 +36,36 @@ namespace WRApp_PC.UserControls
             SetMainGrid(page);
         }
 
+        // Обработка особых ошибок.
+        private void ManageSpecialError(SpecialErrors error, string filePath)
+        {
+            switch (error)
+            {
+                case SpecialErrors.TooManyColumnsInFile:
+                    ChooseIndexesPage(filePath);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         // Открыть страницу для проверки файла.
         private void CheckFilePage(string filePath)
         {
             CheckFilePage page = new CheckFilePage(filePath, new CSVFileChecker());
-            page.OnFileIsOk += (filePath) => Lol(filePath);
+            page.OnFileIsOk += (filePath) => { };
+            page.OnSpecialError += (SpecialErrors error, string filePath, string errorText) => ManageSpecialError(error, filePath);
 
             SetMainGrid(page);
+
+            page.Check();
         }
         
+        // Открыть страницу для выбора индексов, из которыз будут созданы карточки.
         private void ChooseIndexesPage(string filePath)
         {
-
+            ChooseIndexesPage page = new ChooseIndexesPage(filePath);
+            SetMainGrid(page);
         }
 
         private void SetMainGrid(UIElement page)

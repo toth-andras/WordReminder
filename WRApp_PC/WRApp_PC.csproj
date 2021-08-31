@@ -76,6 +76,8 @@
     <Compile Include="Add_Cards_From_File\Checkers\Criterias\ICriteria.cs" />
     <Compile Include="Add_Cards_From_File\Checkers\SpecialErrorDelegate.cs" />
     <Compile Include="Add_Cards_From_File\Checkers\SpecialErrors.cs" />
+    <Compile Include="Add_Cards_From_File\Columns\ColumnLayoutController.cs" />
+    <Compile Include="Add_Cards_From_File\Columns\IColumnLayout.cs" />
     <Compile Include="Add_Cards_From_File\FileFilters\CSVFileFilter.cs" />
     <Compile Include="Add_Cards_From_File\FileFilters\IFileFilter.cs" />
     <Compile Include="Core\PageManager.cs" />
@@ -83,6 +85,9 @@
     <Compile Include="Core\WRLibraryManager.cs" />
     <Compile Include="SpecialUIElements\CardUILayout.xaml.cs">
       <DependentUpon>CardUILayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpecialUIElements\ColumnUILayout.xaml.cs">
+      <DependentUpon>ColumnUILayout.xaml</DependentUpon>
     </Compile>
     <Compile Include="SpecialUIElements\ErrorLayout.xaml.cs">
       <DependentUpon>ErrorLayout.xaml</DependentUpon>
@@ -108,6 +113,9 @@
     </Compile>
     <Compile Include="UserControls\Card_Add_Edit\AddFromFile\CheckFilePage.xaml.cs">
       <DependentUpon>CheckFilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Card_Add_Edit\AddFromFile\ChooseIndexesPage.xaml.cs">
+      <DependentUpon>ChooseIndexesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ChooseQuizTypePage.xaml.cs">
       <DependentUpon>ChooseQuizTypePage.xaml</DependentUpon>
@@ -170,6 +178,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SpecialUIElements\ColumnUILayout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SpecialUIElements\ErrorLayout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -207,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Card_Add_Edit\AddFromFile\CheckFilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Card_Add_Edit\AddFromFile\ChooseIndexesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

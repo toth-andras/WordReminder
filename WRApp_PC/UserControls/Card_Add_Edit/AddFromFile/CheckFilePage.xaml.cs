@@ -23,6 +23,11 @@ namespace WRApp_PC.UserControls
     /// </summary>
     public partial class CheckFilePage : UserControl
     {
+        // Путь к прверяемому файлу.
+        private readonly string filePath;
+
+        IFileChecker checker;
+
         /// <summary>
         /// Вызывается, если при проверке файла не было обнаружено ошибок.
         /// </summary>
@@ -45,19 +50,25 @@ namespace WRApp_PC.UserControls
             ErrorStack.Children.Add(new ErrorLayout(errorText));
         }
 
-        public CheckFilePage(string filePath, IFileChecker checker)
+        public CheckFilePage(string filePath, IFileChecker fileChecker)
         {
             InitializeComponent();
 
+            this.filePath = filePath;
+            checker = fileChecker;
+
+            checker.OnFileIsOk += (string path) => OnFileIsOk?.Invoke(filePath);
             checker.OnBasicError += (errorText) => ShowError(errorText);
             checker.OnSpecialError += (SpecialErrors error, string filePath, string errorText) => 
             {
                 ShowError(errorText);
                 OnSpecialError?.Invoke(error, filePath, errorText);
             };
+        }
 
+        public void Check()
+        {
             checker.Check(filePath);
-            OnFileIsOk?.Invoke(filePath);
         }
 
         private void ChooseAnotherFileButton_Click(object sender, RoutedEventArgs e)
