@@ -65,6 +65,10 @@ namespace WRApp_PC.UserControls
         private void ChooseIndexesPage(string filePath)
         {
             ChooseIndexesPage page = new ChooseIndexesPage(filePath);
+            page.OnIndexesChosen += (Column c1, Column c2) => 
+            {
+                
+            };
             SetMainGrid(page);
         }
 

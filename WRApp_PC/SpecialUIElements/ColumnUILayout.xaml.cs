@@ -22,7 +22,8 @@ namespace WRApp_PC.SpecialUIElements
     /// </summary>
     public partial class ColumnUILayout : UserControl, IColumnLayout
     {
-        public int ColumnIndex { get; private set; }
+        // Отображаемая колонна.
+        public Column Column { get; private set; }
 
         public bool IsSelected { get; private set; }
 
@@ -32,8 +33,9 @@ namespace WRApp_PC.SpecialUIElements
         {
             InitializeComponent();
 
+            this.Column = column;
+
             ColumnNameLabel.Text = column.ColumnName;
-            ColumnIndex = column.Index;
             IsSelected = false;
 
             foreach (string value in column.Values)

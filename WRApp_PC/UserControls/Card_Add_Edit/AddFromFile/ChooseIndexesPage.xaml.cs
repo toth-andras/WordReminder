@@ -25,16 +25,20 @@ namespace WRApp_PC.UserControls
     /// </summary>
     public partial class ChooseIndexesPage : UserControl
     {
-        private ColumnLayoutController controller = new ColumnLayoutController();
+        private ColumnLayoutController controller;
 
         /// <summary>
         /// Вызывается, когда пользователь выбрал индексы.
         /// </summary>
-        public event Action<int, int> OnIndexesChosen;
+        public event Action<Column, Column> OnIndexesChosen;
 
         public ChooseIndexesPage(string filePath)
         {
             InitializeComponent();
+
+            controller = new ColumnLayoutController();
+            controller.OnEnoughElementsChosen += () => ChooseIndexesButton.IsEnabled = true;
+            controller.OnNotEnoughElementsChosen += () => ChooseIndexesButton.IsEnabled = false;
 
             List<Column> columns = SeparateToColumns(File.ReadAllLines(filePath));
 
@@ -121,6 +125,24 @@ namespace WRApp_PC.UserControls
             }
 
             return false;
+        }
+
+        private void ChooseIndexesButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<IColumnLayout> chosenColumns = controller.GetChosenElements();
+
+            if (chosenColumns.Count == 2)
+            {
+                // Гарантируем, что первый переданный элемент имеет меньший индекс.
+                if (chosenColumns[0].Column.Index > chosenColumns[1].Column.Index)
+                {
+                    OnIndexesChosen?.Invoke(chosenColumns[1].Column, chosenColumns[0].Column);
+                }
+                else
+                {
+                    OnIndexesChosen?.Invoke(chosenColumns[0].Column, chosenColumns[1].Column);
+                }
+            }
         }
     }
 }

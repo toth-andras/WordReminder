@@ -28,6 +28,10 @@
             </StackPanel>
         </ScrollViewer>
 
-        <Button Grid.Row="2"></Button>
+        <Button x:Name="ChooseIndexesButton"
+                Content="Выбрать"
+                Click="ChooseIndexesButton_Click"
+                IsEnabled="False"
+                Grid.Row="2"></Button>
     </Grid>
 </UserControl>

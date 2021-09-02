@@ -12,12 +12,12 @@ namespace WRApp_PC.Add_Cards_From_File
     public interface IColumnLayout
     {
         /// <summary>
-        /// Индекс отображаемого столбца.
+        /// Отображаемый столбец.
         /// </summary>
-        int ColumnIndex { get; }
+        Column Column { get; }
 
         /// <summary>
-        /// Показывает, выбран ли элемент. Должен быть изменен до 
+        /// Показывает, выбран ли элемент. Должен быть изменен до вызова OnClicked.
         /// </summary>
         bool IsSelected { get; }
 

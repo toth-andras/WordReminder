@@ -40,11 +40,25 @@ namespace WRApp_PC.Add_Cards_From_File
 
                 element.MarkAsChecked();
                 elements.Add(element);
+
+                // Вызов событий, связанных с количеством выбранных элементов.
+                if (elements.Count == maxElementsChosen)
+                {
+                    OnEnoughElementsChosen?.Invoke();
+                }
+                else
+                {
+                    OnNotEnoughElementsChosen?.Invoke();
+                }
             }
             else
             {
                 element.MarkAsUnchecked();
                 elements.Remove(element);
+
+                // Поскольку больше допустимого значения выбрать невозможно,
+                // то при удалениии гарантированно будет не хватать.
+                OnNotEnoughElementsChosen?.Invoke();
             }
         }
 
@@ -60,5 +74,15 @@ namespace WRApp_PC.Add_Cards_From_File
         {
             return elements;
         }
+
+        /// <summary>
+        /// Вызывается, когда пользователм выбрано достаточное количество элементов.
+        /// </summary>
+        public event Action OnEnoughElementsChosen;
+
+        /// <summary>
+        /// Вызывается, когда пользователм выбрано недостаточное количество элементов.
+        /// </summary>
+        public event Action OnNotEnoughElementsChosen;
     }
 }
