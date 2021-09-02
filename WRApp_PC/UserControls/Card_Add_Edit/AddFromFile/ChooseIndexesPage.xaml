@@ -7,26 +7,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1150">
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Выберите два столбца, которые будут использованы:"
-                       Foreground="White"
-                       FontSize="20"/>
-            
-            <!-- Стек для отображения всех столбцовю-->
-            <ScrollViewer Grid.Row="1"
-                      VerticalScrollBarVisibility="Visible"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="550*"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Выберите два столбца, которые будут использованы:"
+                   Foreground="White"
+                   FontSize="20"
+                   Grid.Row="0"/>
+        <!--Поле для выбора столбцов и инструкция.-->
+        <!-- Стек для отображения всех столбцовю-->
+        <ScrollViewer VerticalScrollBarVisibility="Visible"
                       HorizontalScrollBarVisibility="Visible"
-                      Margin="0,50,0,20">
-                <StackPanel x:Name="ColumnsStack"
-                            Orientation="Horizontal">
-                    <!--Отступы между отображениями колонню-->
-                    <StackPanel.Resources>
-                        <Style TargetType="{x:Type UserControl}">
-                            <Setter Property="Margin" Value="0,0,0,5"/>
-                        </Style>
-                    </StackPanel.Resources>
-                </StackPanel>
-            </ScrollViewer>
-        </StackPanel>
+                      Margin="0,50,0,20"
+                      Grid.Row="1">
+            <StackPanel x:Name="ColumnsStack"
+                        Orientation="Horizontal">
+            </StackPanel>
+        </ScrollViewer>
+
+        <Button Grid.Row="2"></Button>
     </Grid>
 </UserControl>

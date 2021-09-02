@@ -76,6 +76,7 @@
     <Compile Include="Add_Cards_From_File\Checkers\Criterias\ICriteria.cs" />
     <Compile Include="Add_Cards_From_File\Checkers\SpecialErrorDelegate.cs" />
     <Compile Include="Add_Cards_From_File\Checkers\SpecialErrors.cs" />
+    <Compile Include="Add_Cards_From_File\Columns\Column.cs" />
     <Compile Include="Add_Cards_From_File\Columns\ColumnLayoutController.cs" />
     <Compile Include="Add_Cards_From_File\Columns\IColumnLayout.cs" />
     <Compile Include="Add_Cards_From_File\FileFilters\CSVFileFilter.cs" />

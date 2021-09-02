@@ -5,16 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WRApp_PC.SpecialUIElements"
              mc:Ignorable="d">
-    <StackPanel>
-        <CheckBox x:Name="ColumnNameCheckBox" Checked="ColumnNameCheckBox_Checked">
-            <!--Название столбца.-->
-            <TextBlock x:Name="ColumnNameLabel"
+    <StackPanel Margin="0, 0, 15, 0">
+        <!--Название столбца.-->
+        <TextBlock x:Name="ColumnNameLabel"
                    Foreground="White"
                    FontSize="20"
-                   Text="Column name"/>
-        </CheckBox>
-        
-        <!--Значения столбца.-->
+                   Text="Column name"
+                   MouseLeftButtonDown="ColumnNameLabel_MouseLeftButtonDown"/>
+
+            <!--Значения столбца.-->
         <StackPanel x:Name="ColumnValuesStack" Margin="0, 10, 0, 0">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type UserControl}">

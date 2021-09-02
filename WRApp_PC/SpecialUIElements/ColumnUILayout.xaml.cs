@@ -28,17 +28,23 @@ namespace WRApp_PC.SpecialUIElements
 
         public event Action<IColumnLayout> OnClicked;
 
-        public ColumnUILayout(string columnName, string[] columnValues, int columnIndex)
+        public ColumnUILayout(Column column)
         {
             InitializeComponent();
 
-            ColumnNameLabel.Text = columnName;
-            ColumnIndex = columnIndex;
+            ColumnNameLabel.Text = column.ColumnName;
+            ColumnIndex = column.Index;
             IsSelected = false;
 
-            foreach (string value in columnValues)
+            foreach (string value in column.Values)
             {
-                Label label = new Label() { Content = value };
+                Label label = new Label() { Content = value,
+                    Foreground = Brushes.White,
+                    FontSize = 15,
+                    BorderBrush = Brushes.White,
+                    BorderThickness = new Thickness(2)
+                };
+
                 label.MouseLeftButtonDown += (sender, e) =>
                 {
                     IsSelected = !IsSelected;
@@ -52,26 +58,26 @@ namespace WRApp_PC.SpecialUIElements
         public void MarkAsChecked()
         {
             IsSelected = true;
-            ColumnNameCheckBox.IsChecked = true;
+            ColumnNameLabel.Foreground = Brushes.DarkGray;
 
             foreach (Label label in ColumnValuesStack.Children)
             {
-                label.Foreground = Brushes.Gray;
+                label.Background = Brushes.Gray;
             }
         }
 
         public void MarkAsUnchecked()
         {
             IsSelected = false;
-            ColumnNameCheckBox.IsChecked = false;
+            ColumnNameLabel.Foreground = Brushes.White;
 
             foreach (Label label in ColumnValuesStack.Children)
             {
-                label.Foreground = Brushes.White;
+                label.Background = Brushes.Transparent;
             }
         }
 
-        private void ColumnNameCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void ColumnNameLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             IsSelected = !IsSelected;
             OnClicked?.Invoke(this);

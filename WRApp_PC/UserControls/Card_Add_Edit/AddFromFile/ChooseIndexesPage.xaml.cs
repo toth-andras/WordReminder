@@ -36,39 +36,91 @@ namespace WRApp_PC.UserControls
         {
             InitializeComponent();
 
-            (string[] columnNames, List<List<string>> values) = SeparateToColumns(File.ReadAllLines(filePath));
+            List<Column> columns = SeparateToColumns(File.ReadAllLines(filePath));
 
-            for (int i = 0; i < columnNames.Length; i++)
+            for (int i = 0; i < columns.Count; i++)
             {
-                ColumnUILayout layout = new ColumnUILayout(columnNames[i], values[i].ToArray(), i);
+                ColumnUILayout layout = new ColumnUILayout(columns[i]);
                 controller.TakeUnderControl(layout);
 
                 ColumnsStack.Children.Add(layout);
             }
         }
 
-        private Tuple<string[], List<List<string>>> SeparateToColumns(string[] fileText)
+        // Разбитие файла на столбцы.
+        private List<Column> SeparateToColumns(string[] fileText)
         {
-            List<List<string>> columns = new List<List<string>>();
+            List<Column> columns = new List<Column>();
 
-            string[] columnNames = (from word in fileText[0].Split(',') where word != "" select word).ToArray();
+            // Индексы столбцов, у которых есть имя или хотя бы 1 значение.
+            List<int> goodIndexes = ChooseGoodIndexes(fileText);
 
-            for (int i = 0; i < columnNames.Length; i++)
+            // Заполнить список столбцов пустыми объектами.
+            for (int i = 0; i < goodIndexes.Count; i++)
             {
-                columns.Add(new List<string>());
+                columns.Add(new Column());
             }
 
-            for (int i = 1; i < columnNames.Length; i++)
+            // Указать имена столбцов.
+            string[] columnNames = fileText[0].Split(',');
+            for (int i = 0; i < goodIndexes.Count; i++)
             {
-                string[] values = fileText[i].Split(',');
+                columns[i].ColumnName = columnNames[goodIndexes[i]];
+            }
 
-                for (int j = 0; j < values.Length; j++)
+            // Указать значения столбцов и их индексы в файле.
+            for (int i = 1; i < fileText.Length; i++)
+            {
+                string[] currentValues = fileText[i].Split(',');
+
+                for (int j = 0; j < goodIndexes.Count; j++)
                 {
-                    columns[j].Add(values[j]);
+                    columns[j].AddValue(currentValues[goodIndexes[j]]);
+                    columns[j].Index = goodIndexes[j];
                 }
             }
 
-            return new Tuple<string[], List<List<string>>>(columnNames, columns);
+            return columns;
+        }
+
+        // Выбирает индексы столбцов, у которых есть имя или хотя бы одно значение.
+        private List<int> ChooseGoodIndexes(string[] fileText)
+        {
+            List<int> goodIndexes = new List<int>();
+
+            string[] columnNames = fileText[0].Split(',');
+
+            for (int i = 0; i < columnNames.Length; i++)
+            {
+                if (columnNames[i] != "")
+                {
+                    goodIndexes.Add(i);
+                }
+                else
+                {
+                    if (ColumnHasValues(fileText, i))
+                    {
+                        goodIndexes.Add(i);
+                    }
+                }
+            }
+
+            return goodIndexes;
+        }
+
+        // Проверяет, есть ли у столбца с заданным индексом значения.
+        private bool ColumnHasValues(string[] fileText, int index)
+        {
+            // С единицы, так как 0-й индекс - названия столбцов. 
+            for (int i = 1; i < fileText.Length; i++)
+            {
+                if (fileText[i].Split(',')[index] != "")
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
