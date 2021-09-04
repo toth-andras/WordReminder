@@ -68,6 +68,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Add_Cards_From_File\CardsCreators\ColumnSourceCardCreator.cs" />
+    <Compile Include="Add_Cards_From_File\CardsCreators\ICardsCreator.cs" />
     <Compile Include="Add_Cards_From_File\Checkers\Criterias\Exceptions\NotEnoughColumnsInFileException.cs" />
     <Compile Include="Add_Cards_From_File\Checkers\Criterias\Exceptions\TooManyColumnsInFileException.cs" />
     <Compile Include="Add_Cards_From_File\Checkers\Criterias\FileHasTwoColumnsCriteria.cs" />
@@ -84,14 +86,14 @@
     <Compile Include="Core\PageManager.cs" />
     <Compile Include="Core\QuizManager.cs" />
     <Compile Include="Core\WRLibraryManager.cs" />
-    <Compile Include="SpecialUIElements\CardUILayout.xaml.cs">
-      <DependentUpon>CardUILayout.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SpecialUIElements\ColumnUILayout.xaml.cs">
       <DependentUpon>ColumnUILayout.xaml</DependentUpon>
     </Compile>
     <Compile Include="SpecialUIElements\ErrorLayout.xaml.cs">
       <DependentUpon>ErrorLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Card_Add_Edit\AddFromFile\CardsCreatorPage.xaml.cs">
+      <DependentUpon>CardsCreatorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Card_Add_Edit\AddFromFile\AddFromFilePage.xaml.cs">
       <DependentUpon>AddFromFilePage.xaml</DependentUpon>
@@ -175,10 +177,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SpecialUIElements\CardUILayout.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="SpecialUIElements\ColumnUILayout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -192,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\MenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Card_Add_Edit\AddFromFile\CardsCreatorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

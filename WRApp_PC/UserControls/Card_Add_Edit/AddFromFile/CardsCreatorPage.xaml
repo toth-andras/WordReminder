@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="WRApp_PC.UserControls.CardsCreatorPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WRApp_PC.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1150">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="700*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <!--Отображения карточек-->
+        <ScrollViewer Grid.Row="0"
+                      VerticalScrollBarVisibility="Visible"
+                      HorizontalScrollBarVisibility="Disabled"
+                      Margin="0,20,0,20">
+            <StackPanel x:Name="CardsStack">
+                <!--Отступы между отображениями карточек-->
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="0,0,0,5"/>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+        </ScrollViewer>
+        
+        <!--Кнопка добавить карточки.-->
+        <Button x:Name="AddButton"
+                Grid.Row="1"
+                Content="Добавить"/>
+    </Grid>
+</UserControl>

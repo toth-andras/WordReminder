@@ -67,8 +67,16 @@ namespace WRApp_PC.UserControls
             ChooseIndexesPage page = new ChooseIndexesPage(filePath);
             page.OnIndexesChosen += (Column c1, Column c2) => 
             {
-                
+                AdmitAddingPage(new ColumnSourceCardCreator(c1, c2));
             };
+            SetMainGrid(page);
+        }
+
+        // Открыть страницу для подтверждения добавления карточек.
+        private void AdmitAddingPage(ICardsCreator cardsCreator)
+        {
+            CardsCreatorPage page = new CardsCreatorPage(cardsCreator);
+
             SetMainGrid(page);
         }
 

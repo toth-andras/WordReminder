@@ -19,6 +19,11 @@ using WRApp_PC.WRLibrary;
 namespace WRApp_PC.UserControls
 {
     /// <summary>
+    /// Указывает, какие кнопки должны быть доступны на отображении карточки.
+    /// </summary>
+    public enum CardUILayoutButtons { None, Remove, Edit, RemoveEdit }
+
+    /// <summary>
     /// Класс для отображения пользователю экземпляра класса WRLibrary.Card.
     /// </summary>
     public partial class CardUILayout : UserControl
@@ -53,6 +58,35 @@ namespace WRApp_PC.UserControls
 
             TermTextBlock.Text = card.Term;
             ValueTextBlock.Text = card.Value;
+        }
+
+        public CardUILayout(Card card, CardUILayoutButtons buttons) : this(card)
+        {
+            switch (buttons)
+            {
+                case CardUILayoutButtons.None:
+                    RemoveButton.Visibility = Visibility.Hidden;
+                    EditButton.Visibility = Visibility.Hidden;
+                    break;
+
+                case CardUILayoutButtons.Remove:
+                    RemoveButton.Visibility = Visibility.Visible;
+                    EditButton.Visibility = Visibility.Hidden;
+                    break;
+
+                case CardUILayoutButtons.Edit:
+                    RemoveButton.Visibility = Visibility.Hidden;
+                    EditButton.Visibility = Visibility.Visible;
+                    break;
+
+                case CardUILayoutButtons.RemoveEdit:
+                    RemoveButton.Visibility = Visibility.Visible;
+                    EditButton.Visibility = Visibility.Visible;
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         // Удаление карточки
