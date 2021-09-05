@@ -23,17 +23,17 @@ namespace WRApp_PC.UserControls
     /// </summary>
     public partial class AddFromFilePage : UserControl
     {
-        public Action OnFinished;
+        /// <summary>
+        /// Вызывается, когда завершился один из сценариев работы страницы.
+        /// </summary>
+        public event Action OnFinished;
 
 
         public AddFromFilePage()
         {
             InitializeComponent();
 
-            ChooseFileTypePage page = new ChooseFileTypePage();
-            page.FileChosen += (path) => CheckFilePage(path);
-
-            SetMainGrid(page);
+            ChooseFilePage();
         }
 
         // Обработка особых ошибок.
@@ -49,11 +49,21 @@ namespace WRApp_PC.UserControls
             }
         }
 
+        // Открыть страницу выбора файла.
+        private void ChooseFilePage()
+        {
+            ChooseFileTypePage page = new ChooseFileTypePage();
+            page.FileChosen += (path) => CheckFilePage(path);
+
+            SetMainGrid(page);
+        }
+
         // Открыть страницу для проверки файла.
         private void CheckFilePage(string filePath)
         {
             CheckFilePage page = new CheckFilePage(filePath, new CSVFileChecker());
-            page.OnFileIsOk += (filePath) => { };
+            page.OnRetry += () => ChooseFilePage();
+            page.OnFileIsOk += (filePath) => AdmitAddingPage(new FileSourceCardsCreator(filePath));
             page.OnSpecialError += (SpecialErrors error, string filePath, string errorText) => ManageSpecialError(error, filePath);
 
             SetMainGrid(page);
@@ -76,6 +86,7 @@ namespace WRApp_PC.UserControls
         private void AdmitAddingPage(ICardsCreator cardsCreator)
         {
             CardsCreatorPage page = new CardsCreatorPage(cardsCreator);
+            page.OnFinished += () => OnFinished?.Invoke();
 
             SetMainGrid(page);
         }

@@ -69,6 +69,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Add_Cards_From_File\CardsCreators\ColumnSourceCardCreator.cs" />
+    <Compile Include="Add_Cards_From_File\CardsCreators\FileSourceCardsCreator.cs" />
     <Compile Include="Add_Cards_From_File\CardsCreators\ICardsCreator.cs" />
     <Compile Include="Add_Cards_From_File\Checkers\Criterias\Exceptions\NotEnoughColumnsInFileException.cs" />
     <Compile Include="Add_Cards_From_File\Checkers\Criterias\Exceptions\TooManyColumnsInFileException.cs" />

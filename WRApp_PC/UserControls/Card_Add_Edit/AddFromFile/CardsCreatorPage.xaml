@@ -30,6 +30,6 @@
         <!--Кнопка добавить карточки.-->
         <Button x:Name="AddButton"
                 Grid.Row="1"
-                Content="Добавить"/>
+                Content="Добавить" Click="AddButton_Click"/>
     </Grid>
 </UserControl>

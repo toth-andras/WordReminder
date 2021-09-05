@@ -13,8 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using WRApp_PC.Core;
 using WRApp_PC.WRLibrary;
-using WRApp_PC.SpecialUIElements;
 using WRApp_PC.Add_Cards_From_File;
 
 namespace WRApp_PC.UserControls
@@ -47,5 +47,16 @@ namespace WRApp_PC.UserControls
                 CardsStack.Children.Add(layout);
             }
         }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            WRLibraryManager.CardStorage.AddCards(cards);
+            OnFinished?.Invoke();
+        }
+
+        /// <summary>
+        /// Вызывается, когда завершился один из сценариев работы страницы.
+        /// </summary>
+        public event Action OnFinished;
     }
 }

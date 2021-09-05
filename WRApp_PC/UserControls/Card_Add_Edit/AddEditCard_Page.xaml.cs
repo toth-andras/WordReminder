@@ -105,6 +105,7 @@ namespace WRApp_PC.UserControls
         public void AddFromFile()
         {
             AddFromFilePage page = new AddFromFilePage();
+            page.OnFinished += () => OnFinished?.Invoke();
 
             SetMainGrid(page);
         }

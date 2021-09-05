@@ -24,7 +24,7 @@
                    x:Name="PageTitleLabel"
                    Content="Добавить карточку"
                    FontSize="40"
-                   Foreground="White"/>
+                   Foreground="White" HorizontalAlignment="Left" Margin="0.444,0,0,0" Width="361"/>
         </Grid>
 
         <!--Основная часть страницы-->
