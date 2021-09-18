@@ -9,7 +9,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80*"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="250"/>
             <RowDefinition Height="120*"/>
         </Grid.RowDefinitions>
         
@@ -43,13 +43,13 @@
                         Click="DoQuizButton_Click"
                         BorderThickness="0"
                         Height="200"
-                        Width="400">
+                        Width="400" MouseEnter="ButtonMouseEnter" MouseLeave="ButtonMouseLeave">
                     <!--Форма кнопки-->
-                    <Button.Clip>
+                    <!--<Button.Clip>
                         <RectangleGeometry RadiusX="10"
                                        RadiusY="10"
                                        Rect="0,0, 400, 200"/>
-                    </Button.Clip>
+                    </Button.Clip>-->
 
                     <!--Цвет кнопки-->
                     <Button.Background>
@@ -79,14 +79,14 @@
                         BorderThickness="0"
                         Height="200"
                         Width="400"
-                        Click="AddCardButton_Click">
+                        Click="AddCardButton_Click" MouseEnter="ButtonMouseEnter" MouseLeave="ButtonMouseLeave">
 
                     <!--Форма кнопки-->
-                    <Button.Clip>
+                    <!--<Button.Clip>
                         <RectangleGeometry RadiusX="10"
                                        RadiusY="10"
                                        Rect="0,0, 400, 200"/>
-                    </Button.Clip>
+                    </Button.Clip>-->
 
                     <!--Цвет кнопки-->
                     <Button.Background>

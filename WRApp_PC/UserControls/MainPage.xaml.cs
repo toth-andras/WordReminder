@@ -36,5 +36,25 @@ namespace WRApp_PC.UserControls
         {
             PageManager.ChangePage(Pages.ChooseQuizType);
         }
+
+        private void ButtonMouseEnter(object sender, MouseEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                button.Height *= 1.2;
+                button.Width *= 1.2;
+            }
+        }
+
+        private void ButtonMouseLeave(object sender, MouseEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                button.Height /= 1.2;
+                button.Width /= 1.2;
+            }
+        }
     }
 }
