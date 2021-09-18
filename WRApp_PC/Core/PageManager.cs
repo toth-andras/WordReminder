@@ -8,7 +8,7 @@ namespace WRApp_PC.Core
 {
     public enum Pages
     {
-        Main, CardsShower,
+        Main, CardsShower, Settings,
         AddEditCard, ChooseQuizType,
         QuizPage
     }
@@ -52,6 +52,10 @@ namespace WRApp_PC.Core
 
                 case Pages.CardsShower:
                     grid.Children.Add(new CardsShowerPage());
+                    break;
+
+                case Pages.Settings:
+                    grid.Children.Add(new SettingsPage());
                     break;
 
                 case Pages.AddEditCard:

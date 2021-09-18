@@ -28,8 +28,10 @@
                          Content="Мои карточки"
                          Click="MyCardsMenuButton_Click">
             </RadioButton>
-            <RadioButton Style="{StaticResource MenuButtonTheme}" 
-                         Content="Настройки">
+            <RadioButton x:Name="SettingsButton"
+                         Style="{StaticResource MenuButtonTheme}" 
+                         Content="Настройки"
+                         Click="SettingsButton_Checked">
             </RadioButton>
         </StackPanel>
         

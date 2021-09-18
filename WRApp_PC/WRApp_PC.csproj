@@ -146,6 +146,12 @@
     <Compile Include="UserControls\Quiz_Show\QuestionShowers\TextInputQuestionShower.xaml.cs">
       <DependentUpon>TextInputQuestionShower.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserSettings\Settings.cs" />
+    <Compile Include="UserControls\Settings\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserSettings\SettingsIOManager.cs" />
+    <Compile Include="UserSettings\SettingsIOModel.cs" />
     <Compile Include="WRLibrary\Cards\CardCategory.cs" />
     <Compile Include="WRLibrary\Cards\CardComparer.cs" />
     <Compile Include="WRLibrary\Cards\CardStorage.cs" />
@@ -165,6 +171,7 @@
     <Compile Include="WRLibrary\Services\IO\CardIOModel.cs" />
     <Compile Include="WRLibrary\Services\IO\CardIOService.cs" />
     <Compile Include="WRLibrary\Services\IO\CardIOServiceException.cs" />
+    <Compile Include="UserSettings\SettingsIOException.cs" />
     <Compile Include="WRLibrary\UserAnswer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -259,6 +266,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Quiz_Show\QuestionShowers\TextInputQuestionShower.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Settings\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

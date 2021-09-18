@@ -41,5 +41,10 @@ namespace WRApp_PC
         {
             PageManager.ChangePage(Pages.CardsShower);
         }
+
+        private void SettingsButton_Checked(object sender, RoutedEventArgs e)
+        {
+            PageManager.ChangePage(Pages.Settings);
+        }
     }
 }
